@@ -16,6 +16,8 @@ using namespace imageHandle;
 
 #pragma execution_character_set("gbk") 
 
+//²âÊÔ×¢ÊÍ
+
 
 
 HWND window;
