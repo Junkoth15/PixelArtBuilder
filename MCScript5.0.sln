@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MCScript5.0", "MCScript5.0\MCScript5.0.vcxproj", "{96333BDF-A89A-4301-87E6-58A672A47390}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MCScript5.0SetUp", "..\MCScript5.0SetUp\MCScript5.0SetUp\MCScript5.0SetUp.vdproj", "{88930EA4-9E6C-4876-BA32-16DFB7CC04D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Debug|x64.ActiveCfg = Debug|x64
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Debug|x64.Build.0 = Debug|x64
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Debug|x86.ActiveCfg = Debug|Win32
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Debug|x86.Build.0 = Debug|Win32
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Release|x64.ActiveCfg = Release|x64
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Release|x64.Build.0 = Release|x64
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Release|x86.ActiveCfg = Release|Win32
+		{96333BDF-A89A-4301-87E6-58A672A47390}.Release|x86.Build.0 = Release|Win32
+		{88930EA4-9E6C-4876-BA32-16DFB7CC04D2}.Debug|x64.ActiveCfg = Debug
+		{88930EA4-9E6C-4876-BA32-16DFB7CC04D2}.Debug|x86.ActiveCfg = Debug
+		{88930EA4-9E6C-4876-BA32-16DFB7CC04D2}.Release|x64.ActiveCfg = Release
+		{88930EA4-9E6C-4876-BA32-16DFB7CC04D2}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EBD8250-153B-4374-B25F-9E5F8FE4E675}
+	EndGlobalSection
+EndGlobal

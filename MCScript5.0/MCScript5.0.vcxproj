@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{96333bdf-a89a-4301-87e6-58a672a47390}</ProjectGuid>
+    <RootNamespace>MCScript50</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world470d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world470.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="ColorItem.cpp" />
+    <ClCompile Include="ColorItemSet.cpp" />
+    <ClCompile Include="ColorItemSetFactory.cpp" />
+    <ClCompile Include="ContainReader.cpp" />
+    <ClCompile Include="FileLoader.cpp" />
+    <ClCompile Include="FileLoaderException.cpp" />
+    <ClCompile Include="ImagePerformer120.cpp" />
+    <ClCompile Include="ItemConverter.cpp" />
+    <ClCompile Include="MapCounter.cpp" />
+    <ClCompile Include="MCScript.cpp" />
+    <ClCompile Include="MPBQuickStarter.cpp" />
+    <ClCompile Include="Shower.cpp" />
+    <ClCompile Include="UnrealCraftItemMapGetter.cpp" />
+    <ClCompile Include="LineBuilder.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="MapBuilder.cpp" />
+    <ClCompile Include="NoImagePerformer120.cpp" />
+    <ClCompile Include="PlayerInfo.cpp" />
+    <ClCompile Include="TaskSpliter.cpp" />
+    <ClCompile Include="UnrealCraftItemMapWareGetter.cpp" />
+    <ClCompile Include="UnrealCraftMPBFactory.cpp" />
+    <ClCompile Include="UnrealCraftMPBPerformer.cpp" />
+    <ClCompile Include="UnrealCraftPerformer.cpp" />
+    <ClCompile Include="UnrealCraftPerformerFile.cpp" />
+    <ClCompile Include="UnrealCraftShopBox.cpp" />
+    <ClCompile Include="VectorFontFactory.cpp" />
+    <ClCompile Include="Lattice.cpp" />
+    <ClCompile Include="Letter.cpp" />
+    <ClCompile Include="MCItem.cpp" />
+    <ClCompile Include="MCItemMapFactory.cpp" />
+    <ClCompile Include="MCScript5.0.cpp" />
+    <ClCompile Include="Package.cpp" />
+    <ClCompile Include="StringReader.cpp" />
+    <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="UnrealCraftBox.cpp" />
+    <ClCompile Include="UnrealCraftContainReader.cpp" />
+    <ClCompile Include="UnrealCraftPackage.cpp" />
+    <ClCompile Include="UnrealCraftPlayerInfoReader.cpp" />
+    <ClCompile Include="UnrealCraftWinReader.cpp" />
+    <ClCompile Include="VectorFont.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Box.h" />
+    <ClInclude Include="BuildLine.h" />
+    <ClInclude Include="BuildMapPic.h" />
+    <ClInclude Include="CanBuildMapPic.h" />
+    <ClInclude Include="CloneAble.h" />
+    <ClInclude Include="ColorItem.h" />
+    <ClInclude Include="ColorItemMat.h" />
+    <ClInclude Include="ColorItemSet.h" />
+    <ClInclude Include="ColorItemSetFactory.h" />
+    <ClInclude Include="Contain.h" />
+    <ClInclude Include="ContainReader.h" />
+    <ClInclude Include="FileLoader.h" />
+    <ClInclude Include="FileLoaderException.h" />
+    <ClInclude Include="Font.h" />
+    <ClInclude Include="GetItemMap.h" />
+    <ClInclude Include="HandControl.h" />
+    <ClInclude Include="ImagePerformer.h" />
+    <ClInclude Include="ImagePerformer120.h" />
+    <ClInclude Include="ItemConverter.h" />
+    <ClInclude Include="MapCounter.h" />
+    <ClInclude Include="MCScript.h" />
+    <ClInclude Include="MPBQuickStarter.h" />
+    <ClInclude Include="Shower.h" />
+    <ClInclude Include="UnrealCraftItemMapGetter.h" />
+    <ClInclude Include="KeyBoardControl.h" />
+    <ClInclude Include="LineBuilder.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="MapBuilder.h" />
+    <ClInclude Include="MouseControl.h" />
+    <ClInclude Include="NoImageBasicFunction.h" />
+    <ClInclude Include="NoImagePerformer.h" />
+    <ClInclude Include="NoImagePerformer120.h" />
+    <ClInclude Include="PackageControl.h" />
+    <ClInclude Include="PlayerControl.h" />
+    <ClInclude Include="PlayerInfo.h" />
+    <ClInclude Include="ReadAllInfoCImage.h" />
+    <ClInclude Include="ScanWindow.h" />
+    <ClInclude Include="SplitTask.h" />
+    <ClInclude Include="TaskSpliter.h" />
+    <ClInclude Include="UnrealCraftItemMapWareGetter.h" />
+    <ClInclude Include="UnrealCraftMPBFactory.h" />
+    <ClInclude Include="UnrealCraftMPBPerformer.h" />
+    <ClInclude Include="UnrealCraftPerformer.h" />
+    <ClInclude Include="UnrealCraftPerformerFile.h" />
+    <ClInclude Include="UnrealCraftShopBox.h" />
+    <ClInclude Include="VectorFontFactory.h" />
+    <ClInclude Include="Lattice.h" />
+    <ClInclude Include="Letter.h" />
+    <ClInclude Include="MCItem.h" />
+    <ClInclude Include="MCItemMapFactory.h" />
+    <ClInclude Include="MCItemMap.h" />
+    <ClInclude Include="Package.h" />
+    <ClInclude Include="ReadContain.h" />
+    <ClInclude Include="ReadPlayerInfo.h" />
+    <ClInclude Include="ReadString.h" />
+    <ClInclude Include="ReadAllInfo.h" />
+    <ClInclude Include="SearchLetter.h" />
+    <ClInclude Include="StringReader.h" />
+    <ClInclude Include="Tools.h" />
+    <ClInclude Include="UnrealCraftBox.h" />
+    <ClInclude Include="UnrealCraftContainReader.h" />
+    <ClInclude Include="UnrealCraftPackage.h" />
+    <ClInclude Include="UnrealCraftPlayerInfoReader.h" />
+    <ClInclude Include="UnrealCraftWinReader.h" />
+    <ClInclude Include="VectorFont.h" />
+    <ClInclude Include="NameSpace.h" />
+    <ClInclude Include="WindowControl.h" />
+    <ClInclude Include="WinPlayerControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

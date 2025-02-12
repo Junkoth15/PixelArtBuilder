@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\控制器模块">
+      <UniqueIdentifier>{8dc489b3-4825-4ef9-9a82-136a099949b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块">
+      <UniqueIdentifier>{dcf49fef-e0c0-4062-886a-5e42122189e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\文件模块">
+      <UniqueIdentifier>{4c9e9cd0-c27c-4cf3-a961-b5f56ef3ce5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\文件模块">
+      <UniqueIdentifier>{cca49079-2811-4c4d-86a1-532b7f3bf333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\工具模块">
+      <UniqueIdentifier>{78d337d2-b218-468f-a3ac-c20f9cd9308f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\工具模块">
+      <UniqueIdentifier>{ca185a70-97f4-4330-ac4a-6f989024b2ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\控制器模块">
+      <UniqueIdentifier>{6500e57a-5139-478e-9aa4-7e7cb1f4950e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\容器模块">
+      <UniqueIdentifier>{751d2983-8e2d-4310-8e39-ca856a993459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块">
+      <UniqueIdentifier>{5593e5ac-8518-4b7d-9479-3be40217bc77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\行为模块">
+      <UniqueIdentifier>{4110e47b-6286-4c7e-bff9-1c020f5e2718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\行为模块">
+      <UniqueIdentifier>{b8a1a667-9a7b-4cec-8988-2e1a3dccf92c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块">
+      <UniqueIdentifier>{14b618fa-f812-43c1-a7c0-300d5ae49b78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\容器模块">
+      <UniqueIdentifier>{eac141b5-dea3-4afa-95f6-f31e66624472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\控制器模块">
+      <UniqueIdentifier>{f2169482-e511-42fe-8df5-858d517e49cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块">
+      <UniqueIdentifier>{1a77a409-be5a-480f-b2cb-4ce315d63525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\行建造模块">
+      <UniqueIdentifier>{cd76fb1b-b07e-4c78-9660-aa667e2f8da1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\任务计划模块">
+      <UniqueIdentifier>{547da316-8538-4e67-a093-7aee1b914f87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块">
+      <UniqueIdentifier>{0f853603-383f-44e6-a18b-4828b424fc36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块\地图画建造操作器实现类">
+      <UniqueIdentifier>{8420fb3b-badb-45fa-8116-ebb63bc64edf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块">
+      <UniqueIdentifier>{e61ac048-0736-4328-b75a-ea1f6e15317b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造实现模块">
+      <UniqueIdentifier>{4e63fde3-b4f7-4d1b-b1cf-20ce41472319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造实现模块\地图画建造操作器实现类">
+      <UniqueIdentifier>{92c8261b-2a01-4e30-bae1-6cc8985b3149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\任务计划模块">
+      <UniqueIdentifier>{262a3159-82e2-4c3f-9a7b-a8a963f6bfb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\行建造模块">
+      <UniqueIdentifier>{06ec31ee-fd27-4bb0-a51c-7ef0d160623d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\物品模块">
+      <UniqueIdentifier>{8e98a19b-7f5e-49b1-a9d9-a4826df449d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\物品模块\物品">
+      <UniqueIdentifier>{246f8687-c7c1-40d2-8c43-6cd18d29b2ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\物品模块\物品集">
+      <UniqueIdentifier>{317ecfed-7a73-449d-82ed-2b0414343a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\物品模块\物品集工厂">
+      <UniqueIdentifier>{c79e5cc2-7294-44f0-b4e6-140bdaf9d98b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\物品模块">
+      <UniqueIdentifier>{cdc17b99-3555-4a5c-ada8-f0ec1b4ca46a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\物品模块\物品">
+      <UniqueIdentifier>{f1303664-bdbb-4784-9284-1df3153be626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\物品模块\物品集">
+      <UniqueIdentifier>{6166493a-ff68-48df-ad31-ce833a342f3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\物品模块\物品集工厂">
+      <UniqueIdentifier>{350f9f21-e94a-44df-9030-eca55d764c36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\容器模块\格子">
+      <UniqueIdentifier>{37f25efb-de52-461f-89d0-2b28ff6f45fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\容器模块\格子">
+      <UniqueIdentifier>{e89461c9-7ede-4701-a628-8608ab4b94cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\容器模块\容器">
+      <UniqueIdentifier>{012bace1-e8f8-4f3f-b6e3-f022609d59a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\容器模块\容器\箱子">
+      <UniqueIdentifier>{4ef9c57a-d3ab-4955-83d1-d2f2c89000fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\容器模块\容器\背包">
+      <UniqueIdentifier>{ef66353a-07db-4e5c-ae6a-f067f08a2dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\容器模块\容器\接口">
+      <UniqueIdentifier>{a9486f44-5fe9-4eb1-88ef-b2798f906ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\容器模块\容器">
+      <UniqueIdentifier>{874b6cbe-4055-49a2-ac43-3b958af1f8c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\容器模块\容器\箱子">
+      <UniqueIdentifier>{7a44dbd3-5625-4317-90a4-9d8dc4b311b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\容器模块\容器\背包">
+      <UniqueIdentifier>{7d78901b-4559-413f-8248-eccc594660d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\容器模块\容器\接口">
+      <UniqueIdentifier>{5df8429c-1d20-482e-b45f-3f8aec83b74f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器">
+      <UniqueIdentifier>{953dd6a2-6ba4-4e71-b9cc-6aee6ec1067b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\文字读取器">
+      <UniqueIdentifier>{43e25733-fab0-4075-903c-850b52d2a3f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\文字读取器">
+      <UniqueIdentifier>{279cd5cf-1e59-4675-b5d7-0c7c2be95e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\文字读取器\接口">
+      <UniqueIdentifier>{c22978cc-4548-475a-8a14-0af83abf4bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\文字读取器\实现">
+      <UniqueIdentifier>{ec25cd94-4a74-430a-b22b-79c8d3be8353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\文字读取器\实现">
+      <UniqueIdentifier>{afae986f-6585-40f0-bb4a-d2c3834d08ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\字体模块">
+      <UniqueIdentifier>{2c57c0cb-e257-4f9f-bd20-eefca3412a50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\字体模块">
+      <UniqueIdentifier>{35e74446-1505-4bd7-ab1f-8d39d3dde4fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\容器信息读取器">
+      <UniqueIdentifier>{38ea760f-d95e-4d1e-b6da-9dbe84a13592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器">
+      <UniqueIdentifier>{9c394b34-ec11-4d5b-bf97-99d48ab1ed99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器\接口">
+      <UniqueIdentifier>{ea581c60-87e4-4cce-84c7-958d605bffa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\容器信息读取器">
+      <UniqueIdentifier>{910d81bc-03bb-4644-94ca-226526eacc11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\人物信息读取器">
+      <UniqueIdentifier>{74a8f8bb-1b14-41bc-adb2-9c3751dbc208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\图像读取器">
+      <UniqueIdentifier>{2d98c416-1190-43e3-ab85-f810d03a0893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\字体模块\字符类">
+      <UniqueIdentifier>{4b5a207d-0a2d-45f6-995c-bbe9c8c9ffe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\字体模块\字体类">
+      <UniqueIdentifier>{f59f4be9-18cc-40f0-9940-e432acfdf7e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\字体模块\字体接口">
+      <UniqueIdentifier>{17c93023-8dbb-466b-8fcd-ce1ceca767fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\字体模块\字体类">
+      <UniqueIdentifier>{d7336d63-3a37-4d0b-b23e-a5bedd05bc00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\字体模块\字符类">
+      <UniqueIdentifier>{350d0e46-a01f-4207-8018-06e4fddaa4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\容器信息读取器\接口">
+      <UniqueIdentifier>{0ac13794-86da-494a-bc21-121397b00495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\容器信息读取器\实现">
+      <UniqueIdentifier>{25cba74b-004a-4f3f-9445-828094093cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\容器信息读取器\实现">
+      <UniqueIdentifier>{ed980cb8-6551-4126-bc75-20a59b2411f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\容器信息读取器\抽象类">
+      <UniqueIdentifier>{36edbbb9-631d-44b2-a12a-1f5108a84f77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\容器信息读取器\抽象类">
+      <UniqueIdentifier>{8d47db69-df3c-40e0-b53e-53ce8cc9b089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器\接口">
+      <UniqueIdentifier>{e28ba4ff-5af0-4ddd-9dec-68f51d44557c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器\实现类">
+      <UniqueIdentifier>{7e02395b-4bf0-434f-bbc8-39e26164ee16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\人物信息读取器\实现类">
+      <UniqueIdentifier>{81007287-c4ff-41f6-87cb-a4723e334245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器\实现类">
+      <UniqueIdentifier>{1a34c022-4d09-4b9f-a910-112f3c55d388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\图像读取器\实现类">
+      <UniqueIdentifier>{a35d8294-e3ad-47d1-9904-8176d24d5ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\字体模块\字体工厂类">
+      <UniqueIdentifier>{a134f162-457a-4cad-aeb2-a1eba3328062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\字体模块\字体工厂类">
+      <UniqueIdentifier>{c0ea1c5f-75af-4ad8-90a6-215687019fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\行为模块\非图像依赖性接口">
+      <UniqueIdentifier>{a4a44f7a-a826-4354-89c4-8a30df6e845e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\控制器模块\控制器抽象类">
+      <UniqueIdentifier>{aa4972b9-643a-43b4-be05-8547d7291230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\行为模块\图像依赖性接口">
+      <UniqueIdentifier>{fa855b5d-fc4d-4a15-a905-361bcc8db2f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\控制器模块\控制器实现类">
+      <UniqueIdentifier>{ea916106-7c3f-4081-9c22-546711f1a216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\控制器模块\控制器实现类">
+      <UniqueIdentifier>{2b26bcae-e3f6-4497-bc80-f31243710ff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\控制器模块\控制器接口">
+      <UniqueIdentifier>{14711dc8-a03b-483a-9d5e-0d1741723995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\控制器模块\控制器实现类\非图像依赖性控制器实现类">
+      <UniqueIdentifier>{6d85afc7-8c61-4653-971e-a31a60cfef22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\控制器模块\控制器实现类\图像依赖性控制器实现类">
+      <UniqueIdentifier>{c62b2e15-dc14-4928-afc5-bb1801659094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\数据类">
+      <UniqueIdentifier>{ade5f0a3-d60c-4bcf-a608-e6ce2f33c03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\数据类">
+      <UniqueIdentifier>{db3b317e-94a6-45be-b291-048edd03ba6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\颜色物品模块">
+      <UniqueIdentifier>{50ba85be-6fc3-45c6-bc1c-1ae151120a5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\颜色物品模块">
+      <UniqueIdentifier>{c5155e29-2f2c-46ea-8177-86d21063a8bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\颜色物品模块\物品">
+      <UniqueIdentifier>{159b3427-790d-40fb-be32-c9050bb87096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\颜色物品模块\物品集">
+      <UniqueIdentifier>{83c3f0be-8ba5-4976-83af-9c07ffbc31c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\颜色物品模块\物品集工厂">
+      <UniqueIdentifier>{62e0cb56-50e2-4367-8cc1-2282ac5b54db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\颜色物品模块\物品">
+      <UniqueIdentifier>{3b5fe03a-46d1-481a-8a01-350be5653054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\颜色物品模块\物品集">
+      <UniqueIdentifier>{1d3700a9-9819-4f94-9bc2-df23536b21f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\颜色物品模块\物品集工厂">
+      <UniqueIdentifier>{b667bce2-8087-470d-ae37-e02c39fd391f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\行建造模块\接口">
+      <UniqueIdentifier>{65cd19ed-8d65-4056-95ae-ebf0baf98191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\行建造模块\实现类">
+      <UniqueIdentifier>{3f1587ff-6e73-4f87-8df4-04ecb51c6747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\任务计划模块\接口">
+      <UniqueIdentifier>{7d4b28d0-7545-4bdf-8e34-666fdc8a150a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\任务计划模块\实现类">
+      <UniqueIdentifier>{09bd5542-1107-4465-8ddc-fda3a6903469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\行建造模块\实现类">
+      <UniqueIdentifier>{ce066c72-6c95-465c-9fdb-09d0734888f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\地图画建造器模块">
+      <UniqueIdentifier>{34462eb6-fcda-41ad-b52d-d9b0207f58ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\地图画建造器模块\接口">
+      <UniqueIdentifier>{3ae7b0a7-63d0-4453-ba89-94b95c0109af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\建造地图画逻辑模块">
+      <UniqueIdentifier>{e01f0020-7332-40c4-ade2-b345762b9a73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\建造地图画逻辑模块\接口">
+      <UniqueIdentifier>{2209e49c-9a06-4850-bedc-43d8a72c913b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\建造地图画逻辑模块\实现类">
+      <UniqueIdentifier>{14f73cb2-e14e-4cbd-a8fa-5c4d61a1a09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\地图画建造器模块">
+      <UniqueIdentifier>{f16384b8-65da-46a6-98dd-f5eeae695aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\地图画建造器模块\实现类">
+      <UniqueIdentifier>{3c1ea0f9-5585-4f5c-a616-e5b7e1d1407a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\地图画建造器模块\接口">
+      <UniqueIdentifier>{45d4c7e6-bf0e-4690-9029-0962f5032471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造逻辑模块\任务计划模块\实现类">
+      <UniqueIdentifier>{fe200d5f-f946-415e-9bd9-9feead2ff084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块\物品转换器">
+      <UniqueIdentifier>{a9af570b-56c2-41bc-bed8-8c8a8998c6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造实现模块\物品转换器">
+      <UniqueIdentifier>{1bc265c2-bb86-4bb1-acca-664d566eab4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\文件路径模块">
+      <UniqueIdentifier>{93e3eaa2-f193-4faf-9b0f-eee8889f8eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\文件路径模块">
+      <UniqueIdentifier>{8b576655-7562-45d5-8b4e-6803a2544a56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造实现模块\地图画建造器工厂">
+      <UniqueIdentifier>{c88cd77c-db70-47c0-afa4-3443cc0437dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块\物品获取模块">
+      <UniqueIdentifier>{f8b3e8a7-9306-4d26-bd35-2327040a763d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块\物品获取模块\接口">
+      <UniqueIdentifier>{9adffc42-5725-41a2-a952-49f096be8715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块\物品获取模块\实现类">
+      <UniqueIdentifier>{846b6291-4c62-4edd-82cd-1be95845f186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造实现模块\物品获取模块">
+      <UniqueIdentifier>{e0dad00c-4cb7-41ba-839e-ec0eb18ac596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造逻辑模块\建造图纸模块">
+      <UniqueIdentifier>{426a3f08-0b5b-439d-bd71-efe65616ecc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\通用模块">
+      <UniqueIdentifier>{de858f29-f4d6-421b-8bea-892e81432844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\地图画建造选择模块">
+      <UniqueIdentifier>{23033518-2593-4d97-a8ff-fb18cbcb3167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\脚本模块">
+      <UniqueIdentifier>{b160c022-0526-4a55-a34f-5372900162ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\脚本模块">
+      <UniqueIdentifier>{779691ae-78bf-4971-a3f9-4f0c6519b06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画快速开始模块">
+      <UniqueIdentifier>{0dbd54a8-4a5f-4957-a762-854c8b8347ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\地图画建造实现模块\地图画建造操作器实现类\地图画建造器工厂">
+      <UniqueIdentifier>{87f86316-b39b-4faf-8690-385440532b8d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MCItem.cpp">
+      <Filter>源文件\控制器模块\物品模块\物品</Filter>
+    </ClCompile>
+    <ClCompile Include="MCItemMapFactory.cpp">
+      <Filter>源文件\控制器模块\物品模块\物品集工厂</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLoader.cpp">
+      <Filter>源文件\文件模块</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>源文件\工具模块</Filter>
+    </ClCompile>
+    <ClCompile Include="Lattice.cpp">
+      <Filter>源文件\控制器模块\容器模块\格子</Filter>
+    </ClCompile>
+    <ClCompile Include="Package.cpp">
+      <Filter>源文件\控制器模块\容器模块\容器\背包</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftPackage.cpp">
+      <Filter>源文件\控制器模块\容器模块\容器\背包</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>源文件\控制器模块\容器模块\容器\箱子</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftBox.cpp">
+      <Filter>源文件\控制器模块\容器模块\容器\箱子</Filter>
+    </ClCompile>
+    <ClCompile Include="Letter.cpp">
+      <Filter>源文件\控制器模块\字体模块\字符类</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorFont.cpp">
+      <Filter>源文件\控制器模块\字体模块\字体类</Filter>
+    </ClCompile>
+    <ClCompile Include="MCScript5.0.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StringReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\文字读取器\实现</Filter>
+    </ClCompile>
+    <ClCompile Include="ContainReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\容器信息读取器\实现</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftContainReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\容器信息读取器\实现</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftPlayerInfoReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\人物信息读取器\实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftWinReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\图像读取器\实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorFontFactory.cpp">
+      <Filter>源文件\控制器模块\字体模块\字体工厂类</Filter>
+    </ClCompile>
+    <ClCompile Include="NoImagePerformer120.cpp">
+      <Filter>源文件\控制器模块\控制器模块\控制器抽象类</Filter>
+    </ClCompile>
+    <ClCompile Include="ImagePerformer120.cpp">
+      <Filter>源文件\控制器模块\控制器模块\控制器抽象类</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftPerformer.cpp">
+      <Filter>源文件\控制器模块\控制器模块\控制器实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInfo.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\数据类</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorItem.cpp">
+      <Filter>源文件\地图画建造逻辑模块\颜色物品模块\物品</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorItemSet.cpp">
+      <Filter>源文件\地图画建造逻辑模块\颜色物品模块\物品集</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorItemSetFactory.cpp">
+      <Filter>源文件\地图画建造逻辑模块\颜色物品模块\物品集工厂</Filter>
+    </ClCompile>
+    <ClCompile Include="LineBuilder.cpp">
+      <Filter>源文件\地图画建造逻辑模块\行建造模块\实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="MapBuilder.cpp">
+      <Filter>源文件\地图画建造逻辑模块\地图画建造器模块\实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSpliter.cpp">
+      <Filter>源文件\地图画建造逻辑模块\任务计划模块\实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftMPBPerformer.cpp">
+      <Filter>源文件\地图画建造实现模块\地图画建造操作器实现类</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemConverter.cpp">
+      <Filter>源文件\地图画建造实现模块\物品转换器</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftPerformerFile.cpp">
+      <Filter>源文件\控制器模块\文件路径模块</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftMPBFactory.cpp">
+      <Filter>源文件\地图画建造实现模块\地图画建造器工厂</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>源文件\工具模块</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftItemMapGetter.cpp">
+      <Filter>源文件\地图画建造实现模块\物品获取模块</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftShopBox.cpp">
+      <Filter>源文件\控制器模块\容器模块\容器\箱子</Filter>
+    </ClCompile>
+    <ClCompile Include="Shower.cpp">
+      <Filter>源文件\工具模块</Filter>
+    </ClCompile>
+    <ClCompile Include="MapCounter.cpp">
+      <Filter>源文件\工具模块</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealCraftItemMapWareGetter.cpp">
+      <Filter>源文件\地图画建造实现模块\物品获取模块</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLoaderException.cpp">
+      <Filter>源文件\文件模块</Filter>
+    </ClCompile>
+    <ClCompile Include="MPBQuickStarter.cpp">
+      <Filter>源文件\地图画建造选择模块</Filter>
+    </ClCompile>
+    <ClCompile Include="MCScript.cpp">
+      <Filter>源文件\脚本模块</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MCItem.h">
+      <Filter>头文件\控制器模块\物品模块\物品</Filter>
+    </ClInclude>
+    <ClInclude Include="MCItemMap.h">
+      <Filter>头文件\控制器模块\物品模块\物品集</Filter>
+    </ClInclude>
+    <ClInclude Include="MCItemMapFactory.h">
+      <Filter>头文件\控制器模块\物品模块\物品集工厂</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLoader.h">
+      <Filter>头文件\文件模块</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>头文件\工具模块</Filter>
+    </ClInclude>
+    <ClInclude Include="Contain.h">
+      <Filter>头文件\控制器模块\容器模块\容器\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="Lattice.h">
+      <Filter>头文件\控制器模块\容器模块\格子</Filter>
+    </ClInclude>
+    <ClInclude Include="Package.h">
+      <Filter>头文件\控制器模块\容器模块\容器\背包</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftPackage.h">
+      <Filter>头文件\控制器模块\容器模块\容器\背包</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>头文件\控制器模块\容器模块\容器\箱子</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftBox.h">
+      <Filter>头文件\控制器模块\容器模块\容器\箱子</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadAllInfo.h">
+      <Filter>头文件\控制器模块\图像处理模块\图像读取器\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadString.h">
+      <Filter>头文件\控制器模块\图像处理模块\文字读取器\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchLetter.h">
+      <Filter>头文件\控制器模块\字体模块\字体接口</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>头文件\控制器模块\字体模块\字体类</Filter>
+    </ClInclude>
+    <ClInclude Include="Letter.h">
+      <Filter>头文件\控制器模块\字体模块\字符类</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorFont.h">
+      <Filter>头文件\控制器模块\字体模块\字体类</Filter>
+    </ClInclude>
+    <ClInclude Include="StringReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\文字读取器\实现</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadContain.h">
+      <Filter>头文件\控制器模块\图像处理模块\容器信息读取器\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftContainReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\容器信息读取器\实现</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\容器信息读取器\抽象类</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadPlayerInfo.h">
+      <Filter>头文件\控制器模块\图像处理模块\人物信息读取器\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftPlayerInfoReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\人物信息读取器\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftWinReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\图像读取器\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorFontFactory.h">
+      <Filter>头文件\控制器模块\字体模块\字体工厂类</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoardControl.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseControl.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageControl.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControl.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowControl.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="NoImageBasicFunction.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanWindow.h">
+      <Filter>头文件\控制器模块\行为模块\图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="WinPlayerControl.h">
+      <Filter>头文件\控制器模块\行为模块\图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadAllInfoCImage.h">
+      <Filter>头文件\控制器模块\行为模块\图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="NoImagePerformer.h">
+      <Filter>头文件\控制器模块\控制器模块\控制器接口</Filter>
+    </ClInclude>
+    <ClInclude Include="ImagePerformer.h">
+      <Filter>头文件\控制器模块\控制器模块\控制器接口</Filter>
+    </ClInclude>
+    <ClInclude Include="NoImagePerformer120.h">
+      <Filter>头文件\控制器模块\控制器模块\控制器实现类\非图像依赖性控制器实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="ImagePerformer120.h">
+      <Filter>头文件\控制器模块\控制器模块\控制器实现类\图像依赖性控制器实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftPerformer.h">
+      <Filter>头文件\控制器模块\控制器模块\控制器实现类\图像依赖性控制器实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInfo.h">
+      <Filter>头文件\控制器模块\图像处理模块\数据类</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorItem.h">
+      <Filter>头文件\地图画建造逻辑模块\颜色物品模块\物品</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorItemSet.h">
+      <Filter>头文件\地图画建造逻辑模块\颜色物品模块\物品集</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorItemSetFactory.h">
+      <Filter>头文件\地图画建造逻辑模块\颜色物品模块\物品集工厂</Filter>
+    </ClInclude>
+    <ClInclude Include="CanBuildMapPic.h">
+      <Filter>头文件\地图画建造逻辑模块\地图画建造器模块\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildLine.h">
+      <Filter>头文件\地图画建造逻辑模块\行建造模块\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildMapPic.h">
+      <Filter>头文件\地图画建造逻辑模块\建造地图画逻辑模块\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="SplitTask.h">
+      <Filter>头文件\地图画建造逻辑模块\任务计划模块\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="LineBuilder.h">
+      <Filter>头文件\地图画建造逻辑模块\行建造模块\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBuilder.h">
+      <Filter>头文件\地图画建造逻辑模块\建造地图画逻辑模块\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSpliter.h">
+      <Filter>头文件\地图画建造逻辑模块\任务计划模块\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftMPBPerformer.h">
+      <Filter>头文件\地图画建造实现模块\地图画建造操作器实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemConverter.h">
+      <Filter>头文件\地图画建造实现模块\物品转换器</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftPerformerFile.h">
+      <Filter>头文件\控制器模块\文件路径模块</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftMPBFactory.h">
+      <Filter>头文件\地图画建造实现模块\地图画建造操作器实现类\地图画建造器工厂</Filter>
+    </ClInclude>
+    <ClInclude Include="HandControl.h">
+      <Filter>头文件\控制器模块\行为模块\非图像依赖性接口</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>头文件\工具模块</Filter>
+    </ClInclude>
+    <ClInclude Include="GetItemMap.h">
+      <Filter>头文件\地图画建造实现模块\物品获取模块\接口</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftItemMapGetter.h">
+      <Filter>头文件\地图画建造实现模块\物品获取模块\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftShopBox.h">
+      <Filter>头文件\控制器模块\容器模块\容器\箱子</Filter>
+    </ClInclude>
+    <ClInclude Include="Shower.h">
+      <Filter>头文件\工具模块</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorItemMat.h">
+      <Filter>头文件\地图画建造逻辑模块\建造图纸模块</Filter>
+    </ClInclude>
+    <ClInclude Include="CloneAble.h">
+      <Filter>头文件\通用模块</Filter>
+    </ClInclude>
+    <ClInclude Include="NameSpace.h">
+      <Filter>头文件\通用模块</Filter>
+    </ClInclude>
+    <ClInclude Include="MapCounter.h">
+      <Filter>头文件\工具模块</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftItemMapWareGetter.h">
+      <Filter>头文件\地图画建造实现模块\物品获取模块\实现类</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLoaderException.h">
+      <Filter>头文件\文件模块</Filter>
+    </ClInclude>
+    <ClInclude Include="MPBQuickStarter.h">
+      <Filter>头文件\地图画快速开始模块</Filter>
+    </ClInclude>
+    <ClInclude Include="MCScript.h">
+      <Filter>头文件\脚本模块</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

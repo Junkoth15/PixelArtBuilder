@@ -1,0 +1,3 @@
+图片路径	C:\Users\Junko\Desktop\images\images\1_02.png
+开始列	82
+结束列	128

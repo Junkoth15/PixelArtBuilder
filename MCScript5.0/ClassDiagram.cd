@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="LineBuilder" Collapsed="true">
+    <Position X="12.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEDgBAAABAAAACAAgEAAAAAAAAIAAIAgAQAAAAAAAA=</HashCode>
+      <FileName>LineBuilder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftMPBPerformer" Collapsed="true">
+    <Position X="15.5" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CABBAIAABAAA4JCABAAFgiCAAAAAgAAEgAQAIBAABQE=</HashCode>
+      <FileName>UnrealCraftMPBPerformer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CanBuildMapPic" Collapsed="true">
+    <Position X="15.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAA4JCAAAAEAAAAAAAAgAAAgAQAIAAAAAA=</HashCode>
+      <FileName>CanBuildMapPic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NoImagePerformer120" Collapsed="true">
+    <Position X="2" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BIEMAAjBQCBwABoiIMAAAMIgABAwIAAIhOAAQAAAIlA=</HashCode>
+      <FileName>NoImagePerformer120.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImagePerformer120" Collapsed="true">
+    <Position X="2" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BIEMgAgDACAwAAoiKMADAMIhADAwIACIhPoIhgAAIhA=</HashCode>
+      <FileName>ImagePerformer120.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftPerformer" Collapsed="true">
+    <Position X="2" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UnrealCraftPerformer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImagePerformer" Collapsed="true">
+    <Position X="2" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImagePerformer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NoImagePerformer" Collapsed="true">
+    <Position X="2" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NoImagePerformer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lattice" Collapsed="true">
+    <Position X="22.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAACAAQAASAACEIACAAAIAAAAAACAAggBgCIAAQAA=</HashCode>
+      <FileName>Lattice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Box" Collapsed="true">
+    <Position X="3.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIQEAQIAAAAAAAAIEgAAAgYEAABAABAEIABAAAA=</HashCode>
+      <FileName>Box.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftShopBox" Collapsed="true">
+    <Position X="3.25" Y="16" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAEAAAAAAAAAAAAAAAAAAAAAAMAAAAAA=</HashCode>
+      <FileName>UnrealCraftShopBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftBox" Collapsed="true">
+    <Position X="3.25" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4ABEAIFAAIAAAAAABAAIAAACEAIEABAIAAAAEAAAQCA=</HashCode>
+      <FileName>UnrealCraftBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Package" Collapsed="true">
+    <Position X="0.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAKQEAAIAgBAAAAAQEAAAAABEAABACJAEAABAAAA=</HashCode>
+      <FileName>Package.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftPackage" Collapsed="true">
+    <Position X="0.5" Y="14.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAVEAAFAAIAABAAABAAAAAACEggEABAICQAAUAAAQAA=</HashCode>
+      <FileName>UnrealCraftPackage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Contain" Collapsed="true">
+    <Position X="2" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEBAAIREAAIAAAAABAAAEAABEAAEAABAABAEAABAQAA=</HashCode>
+      <FileName>Contain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReadAllInfo" Collapsed="true">
+    <Position X="7" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReadAllInfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftWinReader" Collapsed="true">
+    <Position X="7" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAAAIAAgCAACAAAAAIADACCIAEIAAAAAMAA=</HashCode>
+      <FileName>UnrealCraftWinReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReadString" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>ReadString.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StringReader" Collapsed="true">
+    <Position X="14.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAEAEAAAEAAAA=</HashCode>
+      <FileName>StringReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReadContain" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReadContain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftContainReader" Collapsed="true">
+    <Position X="16" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAAKACAAAAAAAAgAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UnrealCraftContainReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContainReader" Collapsed="true">
+    <Position X="16" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAACgAAAAEAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContainReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReadPlayerInfo" Collapsed="true">
+    <Position X="7" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAAAAAAgCAAAAAAAAAAAAACIAAIAAAAAIAA=</HashCode>
+      <FileName>ReadPlayerInfo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftPlayerInfoReader" Collapsed="true">
+    <Position X="9.75" Y="7.75" Width="2.25" />
+    <InheritanceLine Type="ReadPlayerInfo" ManuallyRouted="true">
+      <Path>
+        <Point X="7.75" Y="7.048" />
+        <Point X="7.75" Y="7.511" />
+        <Point X="10.875" Y="7.511" />
+        <Point X="10.875" Y="7.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAACgAAAAgCAQAAAgAAAAAAACJBAIIAAAAIEg=</HashCode>
+      <FileName>UnrealCraftPlayerInfoReader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HandControl" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAABAAIgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HandControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyBoardControl" Collapsed="true">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KeyBoardControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseControl" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAMAAAAAwAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>MouseControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NoImageBasicFunction" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAAAAgAIAAAAAIAAAAAAAAAgCAAAAAAAgA=</HashCode>
+      <FileName>NoImageBasicFunction.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PackageControl" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABAAAAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>PackageControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerControl" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAAgAAAAAAAIAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowControl" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAIAAAAAAAAAAAAAEAAAAAAAAAAAAAABEAAAAAAABA=</HashCode>
+      <FileName>WindowControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReadAllInfoCImage" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAAAAAAgCAACAAAAACAAIACIAAIAAAAAIAA=</HashCode>
+      <FileName>ReadAllInfoCImage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScanWindow" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>ScanWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinPlayerControl" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAA=</HashCode>
+      <FileName>WinPlayerControl.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCItem" Collapsed="true">
+    <Position X="29.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAgAAAAEAAEAAAABAAgAAAAAAA=</HashCode>
+      <FileName>MCItem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCItemMap" Collapsed="true">
+    <Position X="22.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MCItemMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MCItemMapFactory" Collapsed="true">
+    <Position X="24.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAABAAAAAIAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MCItemMapFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Letter" Collapsed="true">
+    <Position X="24.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAQACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Letter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Font" Collapsed="true">
+    <Position X="12.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Font.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VectorFont" Collapsed="true">
+    <Position X="12.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAABAAAIAAAAAAAAAAACAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>VectorFont.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SearchLetter" Collapsed="true">
+    <Position X="12.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>SearchLetter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VectorFontFactory" Collapsed="true">
+    <Position X="26" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIACAAAAAgA=</HashCode>
+      <FileName>VectorFontFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftPerformerFile" Collapsed="true">
+    <Position X="24.25" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAgAAAAAAAIAAAAAAAAAQ=</HashCode>
+      <FileName>UnrealCraftPerformerFile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileLoader" Collapsed="true">
+    <Position X="27.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAIEAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapCounter" Collapsed="true">
+    <Position X="27.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>MapCounter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shower" Collapsed="true">
+    <Position X="26" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Shower.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logger" Collapsed="true">
+    <Position X="26" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeCounter" Collapsed="true">
+    <Position X="29.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAACAAAAAACAAAIAAAAQEAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Tools.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThrowException" Collapsed="true">
+    <Position X="27.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildLine" Collapsed="true">
+    <Position X="12.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BuildLine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SplitTask" Collapsed="true">
+    <Position X="9.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SplitTask.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskSpliter" Collapsed="true">
+    <Position X="9.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAEAAAAAAAAAAAAgCAAAAEAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>TaskSpliter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColorItem" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAEAACAAAAAAAAABAA=</HashCode>
+      <FileName>ColorItem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColorItemSet" Collapsed="true">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAQAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ColorItemSet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColorItemSetFactory" Collapsed="true">
+    <Position X="26" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAQAAAAAAAAAAEAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ColorItemSetFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildMapPic" Collapsed="true">
+    <Position X="6.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>BuildMapPic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapBuilder" Collapsed="true">
+    <Position X="6.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAYAAAAAAAAAAMAAAAAAAIgAIAwAECAYgAAAA=</HashCode>
+      <FileName>MapBuilder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemConverter" Collapsed="true">
+    <Position X="29.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAACggAAAAAAAAAAAAAAAAAIAAAAAAAAAgA=</HashCode>
+      <FileName>ItemConverter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftMPBFactory" Collapsed="true">
+    <Position X="22.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>UnrealCraftMPBFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetItemMap" Collapsed="true">
+    <Position X="8" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GetItemMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftItemMapGetter" Collapsed="true">
+    <Position X="9.25" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EJwARAAChoyAoAAAEBABAAAIASAAAEAEkAAAAAgAAAA=</HashCode>
+      <FileName>UnrealCraftItemMapGetter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnrealCraftItemMapWareGetter" Collapsed="true">
+    <Position X="6.5" Y="11.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>VAQClAAChIgAoBAgABgRAoAIAQkABEJAAAAAAAgCAIA=</HashCode>
+      <FileName>UnrealCraftItemMapWareGetter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CloneAble" Collapsed="true">
+    <Position X="2" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>CloneAble.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="UnrealCraftMPBInfo" Collapsed="true">
+    <Position X="24.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAEAAAgAEACAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UnrealCraftMPBPerformer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="PlayerPos" Collapsed="true">
+    <Position X="29.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABgAQAAAAA=</HashCode>
+      <FileName>PlayerInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BlockPos" Collapsed="true">
+    <Position X="24.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABgAQAAAAA=</HashCode>
+      <FileName>PlayerInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="PlayerFacing" Collapsed="true">
+    <Position X="27.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABgAAAAAAA=</HashCode>
+      <FileName>PlayerInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BlockInfo" Collapsed="true">
+    <Position X="22.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAgAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>PlayerInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="PlayerStatus" Collapsed="true">
+    <Position X="22.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAQAAAQAAAAAAAAAACIAAQAAAAAAA=</HashCode>
+      <FileName>PlayerInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ColorItemMat" Collapsed="true">
+    <Position X="26" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ColorItemMat.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="KeyBoardCode" Collapsed="true">
+    <Position X="26" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABABAAAAiAAAAAAgIAACAAAAAABA/v//YQE=</HashCode>
+      <FileName>NoImagePerformer120.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BoxType" Collapsed="true">
+    <Position X="24.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Box.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PackageStatus" Collapsed="true">
+    <Position X="24.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Package.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ASCIIKeyCode" Collapsed="true">
+    <Position X="22.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAABABAAAAiAAAAAQgIAACAAAAAABA/v//YQE=</HashCode>
+      <FileName>KeyBoardControl.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KeyEvent" Collapsed="true">
+    <Position X="27.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAgAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KeyBoardControl.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MouseEvent" Collapsed="true">
+    <Position X="29.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAAAAABAAAAAAAAAAAAAAAAAABAAEAAAAACAAAA=</HashCode>
+      <FileName>MouseControl.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TimeCounterMode" Collapsed="true">
+    <Position X="26" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MoveMode" Collapsed="true">
+    <Position X="22.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAiAAAAgAQAAAAAAAAABABAAAAAAAAAAAAgA=</HashCode>
+      <FileName>CanBuildMapPic.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
