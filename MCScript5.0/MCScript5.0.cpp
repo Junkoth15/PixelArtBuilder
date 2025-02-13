@@ -96,6 +96,7 @@ int main()
 				performer->getWindowPic(img);
 				//imwrite(folder + "È¥Ö÷³Ç.png", Cimage2Mat(img));
 				UnrealCraftBox box(BoxType::BIG);
+				//UnrealCraftBox box(BoxType::SMALL);
 				performer->readContain(img, box);
 				cout << box.getAllLatticeInfo();
 				/*performer->readPackage(img);

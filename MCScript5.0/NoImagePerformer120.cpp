@@ -424,9 +424,9 @@ void NoImagePerformer120::useInstruction(string instruction)
 	keyEvent(ASCIIKeyCode::T, KeyEvent::ClickKey);
 	usleep(400);
 	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyDown);
-	usleep(200);
 	//°ÑÃüÁîÕ³Ìùµ½¼ôÌù°å
 	setClipbar(instruction); 
+	usleep(200);
 	keyEvent(ASCIIKeyCode::V, KeyEvent::ClickKey);
 	usleep(200);
 	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyUp);

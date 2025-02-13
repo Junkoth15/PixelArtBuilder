@@ -169,16 +169,20 @@ void UnrealCraftMPBPerformer::recycleItem()
 	auto points = ender_chest.getAllLatticePOINT();
 	for (auto p : points) {
 		auto& lattice = ender_chest.getLattice(p.x, p.y);
-		if (lattice.isHasKnownItem()) {
-			//若背包放得下，则放入
-			if (package->addItemByShift(lattice.getItem(), lattice.getNum())) {
-				lattice.eraseItem();
-			}
-			//放不下，则停止转移
-			else break;
-			auto pos = ender_chest.getLatticeRelativeMidPos(p.x, p.y);
-			performer->moveMouseAndClickLeft(pos.x, pos.y, false);
-		}
+		//这段代码导致了末影箱清理不彻底
+		//if (lattice.isHasKnownItem()) {
+		//	////若背包放得下，则放入
+		//	//if (package->addItemByShift(lattice.getItem(), lattice.getNum())) {
+		//	//	lattice.eraseItem();
+		//	//}
+		//	////放不下，则停止转移
+		//	//else break;
+
+		//	lattice.eraseItem();
+
+		//}
+		auto pos = ender_chest.getLatticeRelativeMidPos(p.x, p.y);
+		performer->moveMouseAndClickLeft(pos.x, pos.y, false);
 	}
 	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp); usleep(500);
 	closePackage();
@@ -192,11 +196,11 @@ void UnrealCraftMPBPerformer::recycleItem()
 	points = package->getAllLatticePOINT();
 	for (auto p : points) {
 		auto& lattice = package->getLattice(p.x, p.y);
-		if (!lattice.isEmpty()) {
+		//if (!lattice.isEmpty()) {
 			lattice.eraseItem();
 			auto pos = package->getLatticeRelativeMidPos(p.x, p.y);
 			performer->moveMouseAndClickLeft(pos.x, pos.y, false);
-		}
+		//}
 	}
 	//结束
 	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp); usleep(500);
