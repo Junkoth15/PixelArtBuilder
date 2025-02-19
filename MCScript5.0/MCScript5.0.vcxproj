@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\environment\opencv\opencv\build\include\opencv2;C:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\environment\opencv\opencv\build\include\opencv2;C:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
