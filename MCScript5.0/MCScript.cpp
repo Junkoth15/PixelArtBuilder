@@ -31,7 +31,8 @@ void MCScript::shouCai()
 	while (true) {
 		for (int num = 1; num <= 16; num++) {		//有16片菜地
 
-			Logger::log("MCScript::shouCai", "第" + std::to_string(lun) + "轮第" + std::to_string(num) + "号田");
+			
+			LogInfo("第" + std::to_string(lun) + "轮第" + std::to_string(num) + "号田");
 
 			/*if (num % 16 == 1) {
 				performer->speak("pw 静海，好康地图画，精美字画，还有免费地图画。");

@@ -31,6 +31,8 @@ namespace imageHandle {
 	vector<string> readAllPicNames(string folder_path);
 	//根据图片的通道数读取图片某个点的颜色
 	Scalar getColor(const Mat& mat, int y, int x);
+	//保存图片
+	void saveMat(string path,const Mat& mat);
 }
 enum class TimeCounterMode {
 	SECOND, MILISECOND
@@ -40,10 +42,29 @@ class TimeCounter {
 	timeb end_time;
 	TimeCounterMode mode;
 public:
-	TimeCounter(TimeCounterMode mode=TimeCounterMode::MILISECOND);
-	void begin();
-	void setMode(TimeCounterMode mode);
-	int end();
+	TimeCounter(TimeCounterMode mode = TimeCounterMode::MILISECOND) :
+		mode(mode)
+	{
+	}
+	void begin()
+	{
+		ftime(&begin_time);
+	}
+	void setMode(TimeCounterMode mode)
+	{
+		this->mode = mode;
+	}
+	int end()
+	{
+		ftime(&end_time);
+		switch (mode)
+		{
+		case TimeCounterMode::SECOND:return end_time.time - begin_time.time;
+			break;
+		case TimeCounterMode::MILISECOND:return (end_time.time - begin_time.time) * 1000 + end_time.millitm - begin_time.millitm;
+			break;
+		}
+	}
 };
 
 class ThrowException
@@ -51,7 +72,6 @@ class ThrowException
 public:
 	static void throwException(string func_name, string describe);
 };
-
 
 string boolTostr(bool b);
 

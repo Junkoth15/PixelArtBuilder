@@ -7,13 +7,16 @@
 #include"UnrealCraftPerformerFile.h"
 using namespace std;
 
+int UnrealCraftMPBPerformer::MAX_WAIT_MINITIME=10000;
+
 UnrealCraftMPBPerformer::UnrealCraftMPBPerformer(shared_ptr<ImagePerformer> performer, UnrealCraftMPBInfo mpb_info) :
 	performer(performer),
 	converter(mpb_info.convert_file_path, mpb_info.item_map_path),
 	ender_chest(UnrealCraftBox(BoxType::SMALL)),
 	mpb_info(mpb_info),
 	getter(performer.get(),&ender_chest,
-		UnrealCraftPerformerFile::getMCItemSetPath(),mpb_info.getter_file_path)
+		UnrealCraftPerformerFile::getMCItemSetPath(),mpb_info.getter_file_path),
+	tc(TimeCounterMode::MILISECOND)
 {
 }
 
@@ -40,7 +43,7 @@ void UnrealCraftMPBPerformer::getItemToHand(const vector<ColorItem>& line, int i
 void UnrealCraftMPBPerformer::putBlock()
 {
 	performer->putBlock(true);
-	usleep(70);
+	usleep(30);
 }
 
 void UnrealCraftMPBPerformer::move(MoveMode mode)
@@ -70,9 +73,10 @@ void UnrealCraftMPBPerformer::move(MoveMode mode)
 
 PlayerStatus UnrealCraftMPBPerformer::getPlayerStatus()
 {
-	CImage img;
+	Mat img;
 	performer->getF3Pic(img);
-	return performer->getAllPlayerInfo(img);
+	performer->analysisPic(img);
+	return performer->getAllPlayerInfo();
 }
 
 bool UnrealCraftMPBPerformer::testAddItemToPackage(map<string, int> item_map) const
@@ -116,7 +120,8 @@ void UnrealCraftMPBPerformer::goToLine(int line)
 	/*performer->resTp(mpb_info.board_line_name+to_string(line/16+1));
 	usleep(6000);*/
 
-	performer->useInstruction("/home " + to_string(line / 16 + 1)); usleep(4000);
+	//performer->useInstruction("/home " + to_string(line / 16 + 1)); usleep(4000);
+	homeTp(to_string(line / 16 + 1));
 	PlayerStatus status = getPlayerStatus();
 
 	int line_x = mpb_info.board_first_line_x + line;//目标列对应的x坐标
@@ -137,7 +142,8 @@ void UnrealCraftMPBPerformer::goToLine(int line)
 
 void UnrealCraftMPBPerformer::goToBoard()
 {
-	performer->useInstruction("/pw jlu7"); usleep(20000);
+	/*performer->useInstruction("/pw jlu7"); usleep(20000);*/
+	pwTp("jlu7");
 	closeFly();
 	fly();
 }
@@ -147,7 +153,7 @@ void UnrealCraftMPBPerformer::refreshPackage()
 	//刷新之前要把鼠标移开，不然遮挡视线
 	POINT mouse_pos = performer->getMousePosition();
 	performer->moveMouseToPoint(0, 0, false);usleep(200);
-	CImage img;
+	Mat img;
 	performer->getWindowPic(img);
 	performer->getPackage()->setPackageStatus(PackageStatus::USE_SMALL_BOX);
 	performer->readPackage(img);
@@ -216,7 +222,8 @@ void UnrealCraftMPBPerformer::getItemMap(map<string, int> need_map)
 		mc_item_map[convert(pair.first).name] = pair.second;
 	}
 	
-	performer->useInstruction("/pw wnol8"); usleep(20000);
+	//performer->useInstruction("/pw wnol8"); usleep(20000);
+	pwTp("wnol8");
 	getter.getItemMap(mc_item_map); usleep(2000);
 
 }
@@ -445,20 +452,66 @@ const Lattice& UnrealCraftMPBPerformer::getLattice(int x, int y) const
 		"范围错误:" + std::to_string(x) + " " + std::to_string(y));
 }
 
-void UnrealCraftMPBPerformer::goToSpawn()
+void UnrealCraftMPBPerformer::tp(
+	string instruction, int tp_judge_distance, int before_delay_militime, int end_delay_militime)
 {
-	performer->clickKey(ASCIIKeyCode::V, 0, 1000);
-	performer->moveMouseAndClickLeft(800, 450,false); usleep(1000);
-	performer->moveMouseAndClickLeft(800, 350,false); usleep(8000);
+	//等待玩家完全停止
+	usleep(before_delay_militime);
+	do
+	{
+		Mat img;
+		PlayerPos old_pos;
+		performer->getF3Pic(img);
+		performer->analysisPic(img);
+		if (!performer->getPlayerPosition(old_pos)) {
+			break;
+		}
+		performer->useInstruction(instruction);	usleep(500);
+		//不断等待角色长距离移动，直至超时
+		tc.begin();
+		do {
+			performer->getF3Pic(img);
+			performer->analysisPic(img);
+			PlayerPos new_pos;
+			if (!performer->getPlayerPosition(new_pos)) {
+				break;
+			}
+			//长距离移动，结束
+			if (countDistance(old_pos.x,old_pos.y,old_pos.z,new_pos.x,new_pos.y,new_pos.z)>tp_judge_distance) {
+				usleep(end_delay_militime);
+				return;
+			}
+			usleep(100);
+		} while (tc.end() < MAX_WAIT_MINITIME);
+	} while (false);
+
+	ThrowException::throwException(__FUNCTION__, instruction+"传送错误!");
 }
 
-void UnrealCraftMPBPerformer::goToSurviveArea()
+void UnrealCraftMPBPerformer::pwTp(string destination)
 {
-	performer->clickKey(ASCIIKeyCode::V, 0, 800);
-	performer->moveMouseAndClickLeft(800, 350,false); usleep(1000);
-	performer->moveMouseAndClickLeft(950, 350,false); usleep(1000);
-	performer->moveMouseAndClickLeft(870, 570,false); usleep(8000);
+	tp("/pw " + destination, 2, 3000, 3000);
 }
+
+void UnrealCraftMPBPerformer::homeTp(string home_name)
+{
+	tp("/home " + home_name, 2, 1000, 1000);
+}
+
+//void UnrealCraftMPBPerformer::goToSpawn()
+//{
+//	performer->clickKey(ASCIIKeyCode::V, 0, 1000);
+//	performer->moveMouseAndClickLeft(800, 450,false); usleep(1000);
+//	performer->moveMouseAndClickLeft(800, 350,false); usleep(8000);
+//}
+//
+//void UnrealCraftMPBPerformer::goToSurviveArea()
+//{
+//	performer->clickKey(ASCIIKeyCode::V, 0, 800);
+//	performer->moveMouseAndClickLeft(800, 350,false); usleep(1000);
+//	performer->moveMouseAndClickLeft(950, 350,false); usleep(1000);
+//	performer->moveMouseAndClickLeft(870, 570,false); usleep(8000);
+//}
 
 void UnrealCraftMPBPerformer::fly()
 {
@@ -471,15 +524,50 @@ void UnrealCraftMPBPerformer::closeFly()
 	performer->clickKey(ASCIIKeyCode::SHIFT, 500,500);
 }
 
+double UnrealCraftMPBPerformer::countDistance(double x1, double y1, double z1, double x2, double y2, double z2)
+{
+	return sqrt(
+		(x1 - x2) * (x1 - x2) +
+		(y1 - y2) * (y1 - y2) +
+		(z1 - z2) * (z1 - z2)
+	);
+}
+
 void UnrealCraftMPBPerformer::openPackage()
 {
 	performer->useInstruction("/enderchest");
 	performer->getPackage()->setPackageStatus(PackageStatus::USE_SMALL_BOX);
-	usleep(5000);
+	//等待背包打开，打开标志为F3不可读
+	tc.begin();
+	do
+	{
+		Mat img;
+		performer->getWindowPic(img);
+		performer->analysisPic(img);
+		if (!performer->ifF3CanRead()) {
+			usleep(200);
+			return;
+		}
+		usleep(100);
+	} while (tc.end()<MAX_WAIT_MINITIME);
+	ThrowException::throwException(__FUNCTION__, "背包打开超时!");
 }
 
 void UnrealCraftMPBPerformer::closePackage()
 {
 	performer->open_Or_closePackage();
-	usleep(1000);
+	//等待背包关闭，关闭标志为F3可读
+	tc.begin();
+	do
+	{
+		Mat img;
+		performer->getWindowPic(img);
+		performer->analysisPic(img);
+		if (performer->ifF3CanRead()) {
+			usleep(200);
+			return;
+		}
+		usleep(100);
+	} while (tc.end() < MAX_WAIT_MINITIME);
+	ThrowException::throwException(__FUNCTION__, "背包关闭超时!");
 }

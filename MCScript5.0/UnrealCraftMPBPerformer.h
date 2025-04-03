@@ -5,6 +5,7 @@
 #include"UnrealCraftBox.h"
 #include"MCItemMap.h"
 #include"UnrealCraftItemMapWareGetter.h"
+#include"Tools.h"
 struct UnrealCraftMPBInfo
 {
 	int board_first_line_x;//画板第一列x
@@ -15,12 +16,15 @@ struct UnrealCraftMPBInfo
 
 class UnrealCraftMPBPerformer:public CanBuildMapPic
 {
+public:
+	static int MAX_WAIT_MINITIME;
 protected:
 	shared_ptr<ImagePerformer> performer;
 	ItemConverter converter;//颜色物品转mc物品
 	UnrealCraftBox ender_chest;
 	UnrealCraftMPBInfo mpb_info;
 	UnrealCraftItemMapWareGetter getter;
+	TimeCounter tc;
 
 public:
 	UnrealCraftMPBPerformer(shared_ptr<ImagePerformer> performer,UnrealCraftMPBInfo mpb_info);
@@ -57,13 +61,17 @@ private:
 	POINT getLatticeRelativeMidPos(int x, int y)const;
 	Lattice& getLattice(int x, int y);
 	const Lattice& getLattice(int x, int y) const;
-	//去主城
-	void goToSpawn();
-	//去生存区
-	void goToSurviveArea();
+	void tp(string instruction,int tp_judge_distance,int before_delay_militime,int end_delay_militime);
+	void pwTp(string destination);
+	void homeTp(string home_name);
+	////去主城
+	//void goToSpawn();
+	////去生存区
+	//void goToSurviveArea();
 	//飞行
 	void fly();
 	//解除飞行
 	void closeFly();
+	double countDistance(double x1, double y1, double z1, double x2, double y2, double z2);
 };
 

@@ -3,7 +3,7 @@
 class UnrealCraftContainReader:public ContainReader
 {
 protected:
-	shared_ptr<ReadString> str_reader;
+	shared_ptr<ReadString> _str_reader;
 	const MCItemMap* item_map;
 public:
 	UnrealCraftContainReader();

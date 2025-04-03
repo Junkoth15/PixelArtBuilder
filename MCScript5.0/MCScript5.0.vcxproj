@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\environment\opencv\opencv\build\include\opencv2;C:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\environment\opencv\opencv\build\include\opencv2;C:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
@@ -164,6 +164,7 @@
     <ClCompile Include="UnrealCraftMPBPerformer.cpp" />
     <ClCompile Include="UnrealCraftPerformer.cpp" />
     <ClCompile Include="UnrealCraftPerformerFile.cpp" />
+    <ClCompile Include="UnrealCraftPlayerInfoReader.cpp" />
     <ClCompile Include="UnrealCraftShopBox.cpp" />
     <ClCompile Include="VectorFontFactory.cpp" />
     <ClCompile Include="Lattice.cpp" />
@@ -177,8 +178,8 @@
     <ClCompile Include="UnrealCraftBox.cpp" />
     <ClCompile Include="UnrealCraftContainReader.cpp" />
     <ClCompile Include="UnrealCraftPackage.cpp" />
-    <ClCompile Include="UnrealCraftPlayerInfoReader.cpp" />
-    <ClCompile Include="UnrealCraftWinReader.cpp" />
+    <ClCompile Include="PlayerInfoReader120.cpp" />
+    <ClCompile Include="WinReader.cpp" />
     <ClCompile Include="VectorFont.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +227,7 @@
     <ClInclude Include="UnrealCraftMPBPerformer.h" />
     <ClInclude Include="UnrealCraftPerformer.h" />
     <ClInclude Include="UnrealCraftPerformerFile.h" />
+    <ClInclude Include="UnrealCraftPlayerInfoReader.h" />
     <ClInclude Include="UnrealCraftShopBox.h" />
     <ClInclude Include="VectorFontFactory.h" />
     <ClInclude Include="Lattice.h" />
@@ -244,8 +246,8 @@
     <ClInclude Include="UnrealCraftBox.h" />
     <ClInclude Include="UnrealCraftContainReader.h" />
     <ClInclude Include="UnrealCraftPackage.h" />
-    <ClInclude Include="UnrealCraftPlayerInfoReader.h" />
-    <ClInclude Include="UnrealCraftWinReader.h" />
+    <ClInclude Include="PlayerInfoReader120.h" />
+    <ClInclude Include="WinReader.h" />
     <ClInclude Include="VectorFont.h" />
     <ClInclude Include="NameSpace.h" />
     <ClInclude Include="WindowControl.h" />

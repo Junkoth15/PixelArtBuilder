@@ -5,11 +5,12 @@
 //¼üÅÌÂë
 enum class KeyBoardCode
 {
+	NONE=0,
 	ONE = 0x02, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO,
 	Q = 0x10, W, E, R, T, Y, U, I, O, P,
 	A = 0x1e, S, D, F, G, H, J, K, L,
 	Z = 0x2c, X, C, V, B, N, M,
-	SPACEBAR = 0x39, XIEGANG = 0x35, SHIFT = 42
+	SPACEBAR = 0x39, XIEGANG = 0x35, SHIFT = 0x2A,CTRL=0x1D
 };
 
 KeyBoardCode ASCIIKeyCode2KeyBoardCode(ASCIIKeyCode keycode);

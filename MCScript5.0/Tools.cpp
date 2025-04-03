@@ -5,22 +5,37 @@
 using namespace cv;
 using namespace std;
 
+#include <windows.h>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
+static void HighPrecisionSleep(int milliseconds) {
+	TIMECAPS tc;
+	timeGetDevCaps(&tc, sizeof(TIMECAPS));
+	timeBeginPeriod(tc.wPeriodMin);  // 设置为硬件支持的最小周期
+
+	Sleep(milliseconds);
+
+	timeEndPeriod(tc.wPeriodMin);
+}
+
 void usleep(int militime)
 {
-	static TimeCounter tc;
-	static int threshold_num=30;//阈值
-	if (militime <= 0) return;
-	if (militime <= threshold_num) {
-		tc.begin();
-		while (tc.end() < militime);
-	}
-	//若休眠超过阈值，则优先使用大休眠，一般误差不会超过阈值
-	if (militime > threshold_num) {
-		tc.begin();
-		Sleep(militime - threshold_num);
-		militime -= tc.end();
-		usleep(militime);
-	}
+	HighPrecisionSleep(militime);
+
+	//static TimeCounter tc;
+	//static int threshold_num=30;//阈值
+	//if (militime <= 0) return;
+	//if (militime <= threshold_num) {
+	//	tc.begin();
+	//	while (tc.end() < militime);
+	//}
+	////若休眠超过阈值，则优先使用大休眠，一般误差不会超过阈值
+	//if (militime > threshold_num) {
+	//	tc.begin();
+	//	Sleep(militime - threshold_num);
+	//	militime -= tc.end();
+	//	usleep(militime);
+	//}
 
 
 	//if (militime <= 0) return;
@@ -224,33 +239,14 @@ Scalar imageHandle::getColor(const Mat& mat, int y, int x)
 	return color;
 }
 
-TimeCounter::TimeCounter(TimeCounterMode mode) :
-	mode(mode)
+void imageHandle::saveMat(string path,const Mat& mat)
 {
-}
-
-void TimeCounter::begin()
-{
-	ftime(&begin_time);
-}
-
-void TimeCounter::setMode(TimeCounterMode mode)
-{
-	this->mode = mode;
-}
-
-int TimeCounter::end()
-{
-	ftime(&end_time);
-	switch (mode)
-	{
-	case TimeCounterMode::SECOND:return end_time.time - begin_time.time;
-		break;
-	case TimeCounterMode::MILISECOND:return (end_time.time - begin_time.time) * 1000 + end_time.millitm - begin_time.millitm;
-		break;
+	Mat image=mat.clone();
+	if (mat.channels() == 4) {
+		cv::cvtColor(image, image, cv::COLOR_BGRA2BGR);
 	}
+	cv::imwrite(path, image);
 }
-
 
 void ThrowException::throwException(string func_name, string describe)
 {

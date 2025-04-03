@@ -7,7 +7,7 @@
 using namespace cv;
 
 UnrealCraftContainReader::UnrealCraftContainReader():
-	str_reader(make_shared<StringReader>(VectorFontFactory::getFont(UnrealCraftPerformerFile::getFontPath()))),
+	_str_reader(make_shared<StringReader>(VectorFontFactory::getFont(UnrealCraftPerformerFile::getFontPath()))),
 	item_map(&MCItemMapFactory::getMCItemMap(UnrealCraftPerformerFile::getMCItemSetPath()))
 {
 }
@@ -112,7 +112,7 @@ int UnrealCraftContainReader::judgeLatticeItemNum(const Mat& text_img, Scalar fo
 	text_img.row(text_img.rows - 1).setTo(Scalar(0, 0, 0));
 
 	//开始读取
-	string str=str_reader->readString(text_img, font_color, false);
+	string str=_str_reader->readString(text_img, font_color, false);
 	int item_num = 0;
 	//若字符串为空，则物品数量为1
 	if (str.empty()) {

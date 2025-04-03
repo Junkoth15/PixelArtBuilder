@@ -3,10 +3,13 @@
 #include"ImagePerformer.h"
 #include"UnrealCraftBox.h"
 #include"MCItemMap.h"
+#include"Tools.h"
 
 class UnrealCraftItemMapWareGetter:
 	public GetItemMap
 {
+public:
+	static int MAX_WAIT_MILITIME;
 private:
 	enum class Status
 	{
@@ -28,6 +31,7 @@ private:
 	UnrealCraftBox box;
 	Box* ender_chest;
 	const MCItemMap* item_map;
+	TimeCounter tc;
 
 	Status status;
 	Pos pos;
@@ -83,12 +87,13 @@ private:
 	//关闭末影箱
 	void closeEnderChest();
 	//显示need_vec
-	void showPairVector(const vector<pair<string, int>>& vec);
+	string getPairVectorStr(const vector<pair<string, int>>& vec);
 	//获取玩家状态
 	PlayerStatus getPlayerStatus();
 	//去某地
 	void goTo(string name);
 	//selecting的子函数，计算并传送到玩家应该处于的位置
 	void goToSuitablePos(pair<string,int> name_num_pair,int& first_item_x);
+	double countDistance(double x1, double y1, double z1, double x2, double y2, double z2);
 };
 

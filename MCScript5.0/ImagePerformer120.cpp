@@ -23,9 +23,10 @@ void ImagePerformer120::winTurnHead_x(float rad, float rad_speed, bool right, bo
 		};
 
 	PlayerFacing begin;
-	CImage image;
+	Mat image;
 	getWindowPic(image);
-	if (!getPlayerFacingDirection(image, begin)) {
+	analysisPic(image);
+	if (!getPlayerFacing(begin)) {
 		return;
 	}
 
@@ -36,9 +37,10 @@ void ImagePerformer120::winTurnHead_x(float rad, float rad_speed, bool right, bo
 	float half_min_rad = (float)min_distance / 2 * 0.1028;//最小转角的一半
 	while (true)
 	{
-		CImage image;
+		Mat image;
 		getWindowPic(image);
-		getPlayerFacingDirection(image,end);
+		analysisPic(image);
+		getPlayerFacing(end);
 		//最后会落在[rad-half_min_rad,rad+half_min_rad]中
 		if (minus(begin.x, end.x, right) < rad - half_min_rad) {
 			float rad_direction = right ? 0 : PI;
@@ -67,10 +69,11 @@ void ImagePerformer120::winTurnHead_y(float rad, float rad_speed, bool up, bool 
 	rad = fabs(rad);
 	rad = min(180, rad);
 
-	CImage image;
+	Mat image;
 	getWindowPic(image);
+	analysisPic(image);
 	PlayerFacing begin;
-	if (getPlayerFacingDirection(image,begin)) {
+	if (getPlayerFacing(begin)) {
 		//如果转向rad角度已经超过了[-90,90]，则修改rad
 		rad = up ? min(rad, 90 + begin.y) : min(rad, 90 - begin.y);
 
@@ -82,9 +85,10 @@ void ImagePerformer120::winTurnHead_y(float rad, float rad_speed, bool up, bool 
 		float rad_direction = up ? PI / 2 : -PI / 2;//鼠标移动方向
 		while (true)
 		{
-			CImage image;
+			Mat image;
 			getWindowPic(image);
-			getPlayerFacingDirection(image, end);
+			analysisPic(image);
+			getPlayerFacing(end);
 			if (fabs(end.y - begin.y) < rad - half_min_rad) {
 				if (moved_distance * 0.1028 / cost_time * 1000 > rad_speed) {
 					moveMouseLinearly_inTime(rad_direction, min_distance, 20);
@@ -148,10 +152,11 @@ void ImagePerformer120::winMovePlayerPosition_inDistance(int direction, float di
 	PlayerPos begin;
 
 	{
-		CImage window_image;
+		Mat window_image;
 		getWindowPic(window_image);
 		//识别现在的位置
-		getPlayerPosition(window_image,begin);
+		analysisPic(window_image);
+		getPlayerPosition(begin);
 	}
 
 	//按下SHIFT
@@ -178,9 +183,10 @@ void ImagePerformer120::winMovePlayerPosition_inDistance(int direction, float di
 	PlayerPos now;
 	while (true)
 	{
-		CImage window_image;
+		Mat window_image;
 		getWindowPic(window_image);
-		if (!getPlayerPosition(window_image,now)) {
+		analysisPic(window_image);
+		if (!getPlayerPosition(now)) {
 			//读取失败，退出
 			break;
 		}
@@ -212,57 +218,6 @@ void ImagePerformer120::winMovePlayerPosition_inDistance(int direction, float di
 	if (shift) {
 		keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp);
 	}
-}
-
-bool ImagePerformer120::isLookingAtBlock(const CImage& f3_image)
-{
-	if (f3_image.IsNull())
-		return false;
-	return image_handler->isLookingAtBlock(Cimage2Mat(f3_image));
-}
-
-bool ImagePerformer120::getLookingAtBlock(const CImage& f3_image, BlockInfo& block_info)
-{
-	return image_handler->getLookingAtBlock(Cimage2Mat(f3_image),block_info);
-}
-
-bool ImagePerformer120::getLookingAtBlockName(const CImage& f3_image, string& blockname)
-{
-	return image_handler->getLookingAtBlockName(Cimage2Mat(f3_image),blockname);
-}
-
-bool ImagePerformer120::getLookingAtBlockPos(const CImage& f3_image, BlockPos& block_pos)
-{
-	return image_handler->getLookingAtBlockPos(Cimage2Mat(f3_image),block_pos);
-}
-
-bool ImagePerformer120::ifPosCanRead(const CImage& f3_image)
-{
-	if (f3_image.IsNull())
-		return false;
-	return image_handler->ifPosCanRead(Cimage2Mat(f3_image));
-}
-
-bool ImagePerformer120::ifDirectionCanRead(const CImage& f3_image)
-{
-	if (f3_image.IsNull())
-		return false;
-	return image_handler->ifDirectionCanRead(Cimage2Mat(f3_image));
-}
-
-bool ImagePerformer120::getPlayerPosition(const CImage& f3_image,PlayerPos& player_pos)
-{
-	return image_handler->getPlayerPosition(Cimage2Mat(f3_image),player_pos);
-}
-
-bool ImagePerformer120::getPlayerFacingDirection(const CImage& f3_image,PlayerFacing& player_facing)
-{
-	return image_handler->getPlayerFacingDirection(Cimage2Mat(f3_image),player_facing);
-}
-
-void ImagePerformer120::readContain(const CImage& f3_img, Contain& contain)
-{
-	return image_handler->readContain(Cimage2Mat(f3_img), contain);
 }
 
 void ImagePerformer120::keyEvent(ASCIIKeyCode key, KeyEvent key_event)
@@ -431,30 +386,29 @@ void ImagePerformer120::open_Or_closePackage()
 	performer->open_Or_closePackage();
 }
 
-void ImagePerformer120::getWindowPic(WindowCImage& image)
+void ImagePerformer120::getWindowPic(Mat& image)
 {
 	int width = 0, height = 0;
 	performer->getWindowSize(width, height);
 	getWindowPic(image, width, height, 0, 0);
 }
 
-void ImagePerformer120::getWindowPic(WindowCImage& image, int width, int height, int left_x, int top_y)
+void ImagePerformer120::getWindowPic(Mat& image, int width, int height, int left_x, int top_y)
 {
 	//refreshWindowPositionAndSize();
 	//由于网易禁止窗口截屏了，所以不得已用桌面截屏代替
-	//scriptImageHandler.getWindowPic(image, 0, 0, windowWidth, windowHeight, 0, 0);
-	if (!image.IsNull()) {
-		image.Destroy();
-	}
-	auto p = performer->getWindowPos();
-	imageHandle::getWindowPic(nullptr, image, 0, 0, width, height, p.x + left_x, p.y + top_y);
+	//auto p = performer->getWindowPos();
+	CImage cimg;
+	//imageHandle::getWindowPic(nullptr, cimg, 0, 0, width, height, p.x + left_x, p.y + top_y);
+	imageHandle::getWindowPic(getWindow(), cimg, 0, 0, width, height, 0, 0);
+	image = Cimage2Mat(cimg);
 }
 
-void ImagePerformer120::getF3Pic(WindowCImage& image)
+void ImagePerformer120::getF3Pic(Mat& image)
 {
 	int width = 0, height = 0;
 	performer->getWindowSize(width, height);
-	getWindowPic(image, width, (int)(height * 0.5), 0, 0);
+	getWindowPic(image, width, height, 0, 0);
 }
 
 int ImagePerformer120::getHand()
@@ -482,79 +436,94 @@ void ImagePerformer120::moveMouseAndClickLeft(int x, int y, bool absolute, int m
 	performer->moveMouseAndClickLeft(x, y, absolute, move_delay, click_delay);
 }
 
-void ImagePerformer120::readPackage(const CImage& img)
+void ImagePerformer120::analysisPic(const Mat& img)
 {
-	readContain(img, *performer->getPackage());
+	player_reader->analysisPic(img);
 }
 
-ImagePerformer120::ImagePerformer120(HWND window,shared_ptr<NoImagePerformer> performer , shared_ptr<ReadAllInfo> image_handler):
-	image_handler(image_handler),
+bool ImagePerformer120::isLookingAtBlock()
+{
+	return player_reader->isLookingAtBlock();
+}
+
+bool ImagePerformer120::getLookingAtBlock(BlockInfo& block_info)
+{
+	return player_reader->getLookingAtBlock(block_info);
+}
+
+bool ImagePerformer120::getLookingAtBlockName(string& name)
+{
+	return player_reader->getLookingAtBlockName(name);
+}
+
+bool ImagePerformer120::getLookingAtBlockPos(BlockPos& block_pos)
+{
+	return player_reader->getLookingAtBlockPos(block_pos);
+}
+
+bool ImagePerformer120::ifF3CanRead()
+{
+	return player_reader->ifF3CanRead();
+}
+
+bool ImagePerformer120::getPlayerPosition(PlayerPos& player_pos)
+{
+	return player_reader->getPlayerPosition(player_pos);
+}
+
+bool ImagePerformer120::getPlayerFacing(PlayerFacing& player_facing)
+{
+	return player_reader->getPlayerFacing(player_facing);
+}
+
+void ImagePerformer120::readContain(const Mat& mat, Contain& contain)
+{
+	contain_reader->readContain(mat, contain);
+}
+
+void ImagePerformer120::readPackage(const Mat& mat)
+{
+	readContain(mat, *(performer->getPackage()));
+}
+
+PlayerStatus ImagePerformer120::getAllPlayerInfo()
+{
+	return player_reader->getAllPlayerInfo();
+}
+
+ImagePerformer120::ImagePerformer120(
+	HWND window,
+	shared_ptr<NoImagePerformer> performer,
+	shared_ptr<ReadPlayerInfo> player_reader,
+	shared_ptr<ReadContain> contain_reader):
+	player_reader(player_reader),
+	contain_reader(contain_reader),
 	performer(performer)
 {
 }
 
-PlayerStatus ImagePerformer120::getAllPlayerInfo(CImage img)
+shared_ptr<ReadPlayerInfo> ImagePerformer120::setPlayerReader(shared_ptr<ReadPlayerInfo> player_reader)
 {
-	PlayerStatus player_status;
-	player_status.is_F3_can_read = ifPosCanRead(img);
-	player_status.is_looking_at_block = isLookingAtBlock(img);
-
-	if (player_status.is_F3_can_read) {
-		getPlayerPosition(img, player_status.player_pos);
-		getPlayerFacingDirection(img, player_status.facing_direction);
-	}
-	if (player_status.is_looking_at_block) {
-		getLookingAtBlock(img, player_status.block_info);
-	}
-	return player_status;
-
-
-	/*PlayerStatus player_status;
-	TimeCounter tc,tc2;
-	int time,total_time;
-	tc2.begin();
-	tc.begin();
-	player_status.is_F3_can_read = ifPosCanRead(img);
-	time = tc.end();
-	cout << "ImagePerformer120::getAllPlayerInfo:ifPosCanRead:" << time << endl;
-
-	tc.begin();
-	player_status.is_looking_at_block = isLookingAtBlock(img);
-	time = tc.end();
-	cout << "ImagePerformer120::getAllPlayerInfo:isLookingAtBlock:" << time << endl;
-
-	if (player_status.is_F3_can_read) {
-		tc.begin();
-		getPlayerPosition(img,player_status.player_pos);
-		time = tc.end();
-		cout << "ImagePerformer120::getAllPlayerInfo:getPlayerPosition:" << time << endl;
-
-		tc.begin();
-		getPlayerFacingDirection(img, player_status.facing_direction);
-		time = tc.end();
-		cout << "ImagePerformer120::getAllPlayerInfo:getPlayerFacingDir" << time << endl;
-	}
-	if (player_status.is_looking_at_block) {
-		tc.begin();
-		getLookingAtBlock(img,player_status.block_info);
-		time = tc.end();
-		cout << "ImagePerformer120::getAllPlayerInfo:getLookingAtBlock:" << time << endl;
-	}
-	total_time = tc2.end();
-	cout << "ImagePerformer120::getAllPlayerInfo:Total:" << total_time << endl << endl;
-	return player_status;*/
+	auto old = this->player_reader;
+	this->player_reader = player_reader;
+	return old;
 }
 
-shared_ptr<ReadAllInfo> ImagePerformer120::setImageReader(shared_ptr<ReadAllInfo> reader)
+shared_ptr<ReadPlayerInfo> ImagePerformer120::getPlayerReader()
 {
-	auto ori = image_handler;
-	image_handler = reader;
-	return image_handler;
+	return player_reader;
 }
 
-shared_ptr<ReadAllInfo> ImagePerformer120::getImageReader()
+shared_ptr<ReadContain> ImagePerformer120::setContainReader(shared_ptr<ReadContain> contain_reader)
 {
-	return image_handler;
+	auto old = this->contain_reader;
+	this->contain_reader = contain_reader;
+	return old;
+}
+
+shared_ptr<ReadContain> ImagePerformer120::getContainReader()
+{
+	return contain_reader;
 }
 
 shared_ptr<NoImagePerformer> ImagePerformer120::setPerformer(shared_ptr<NoImagePerformer> performer)

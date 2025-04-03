@@ -39,6 +39,7 @@ void MapBuilder::buildMapPic(Mat mat, int begin_line, int end_line)
 
 void MapBuilder::init(Mat& mat, int& begin_line, int& end_line)
 {
+	LogTrace("begin");
 	//处理图片，将待建造区域顺时针旋转90度
 	//切割图片建造区域
 	//mat= mat(Rect(begin_line, 0, end_line - begin_line + 1, mat.rows));
@@ -50,7 +51,8 @@ void MapBuilder::init(Mat& mat, int& begin_line, int& end_line)
 
 void MapBuilder::buildLines(const ColorItemMat& mat,int begin_line, int end_line,int line_length)
 {
-	Logger::log("MapBuilder::buildLines", "begin:" + std::to_string(begin_line) + " end:" + std::to_string(end_line));
+	LogTrace("begin");
+	LogInfo("begin:" + std::to_string(begin_line) + " end:" + std::to_string(end_line));
 	int now_line = begin_line;
 	refreshPackage();
 	while (now_line <= end_line) {
@@ -80,6 +82,7 @@ void MapBuilder::buildOneLine(const ColorItemMat& mat, int now_line,int end_line
 
 void MapBuilder::getItem(map<string, int> item_map)
 {
+	LogTrace("begin");
 	builder->getItemMap(item_map);
 }
 
@@ -90,20 +93,24 @@ void MapBuilder::goToLine(int line)
 
 void MapBuilder::recycleItem()
 {
+	LogTrace("begin");
 	builder->recycleItem();
 }
 
 int MapBuilder::getNext(const ColorItemMat& mat,int begin_line, int max_line, map<string, int>& item_map)
 {
+	LogTrace("begin");
 	return task_spliter->getNextEndRow(mat,begin_line,max_line,builder,item_map);
 }
 
 void MapBuilder::beforeEnd()
 {
+	LogTrace("begin");
 }
 
 ColorItemMat MapBuilder::MatToColorItemMat(Mat mat)
 {
+	LogTrace("begin");
 	ColorItemMat result;
 	result.mat.resize(mat.rows);
 	for (int y = 0; y < mat.rows; y++) {
@@ -124,5 +131,6 @@ void MapBuilder::refreshPackage()
 
 void MapBuilder::goToBoard()
 {
+	LogTrace("begin");
 	builder->goToBoard();
 }

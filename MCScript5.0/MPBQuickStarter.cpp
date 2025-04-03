@@ -13,14 +13,15 @@ void MPBQuickStarter::start()
 {
 
 	map<string,string> key_value= FileLoader::loadTXTMap(config_path);
+
 	string path = key_value.at("图片路径");
 	int begin_line = std::stoi(key_value.at("开始列"));
 	int end_line = std::stoi(key_value.at("结束列"));
 	Mat mat = imread(path, cv::ImreadModes::IMREAD_UNCHANGED);
 	
-	Logger::log("图片路径:" + path);
-	Logger::log("开始列:" + std::to_string(begin_line));
-	Logger::log("结束列" + std::to_string(end_line));
+	LogInfo("图片路径:" + path);
+	LogInfo("开始列:" + std::to_string(begin_line));
+	LogInfo("结束列" + std::to_string(end_line));
 
 	performer->setWindowSize(1740, 945);
 	performer->backGame();
@@ -29,5 +30,5 @@ void MPBQuickStarter::start()
 	TimeCounter tc(TimeCounterMode::SECOND);
 	tc.begin();
 	builder->buildMapPic(mat, begin_line, end_line);
-	Logger::log("完成耗时(s):"+std::to_string(tc.end()));
+	LogInfo("完成耗时(s):"+std::to_string(tc.end()));
 }

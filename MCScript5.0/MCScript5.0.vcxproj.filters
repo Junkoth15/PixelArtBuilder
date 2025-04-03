@@ -139,9 +139,6 @@
     <Filter Include="源文件\控制器模块\容器模块\容器\接口">
       <UniqueIdentifier>{5df8429c-1d20-482e-b45f-3f8aec83b74f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器">
-      <UniqueIdentifier>{953dd6a2-6ba4-4e71-b9cc-6aee6ec1067b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\控制器模块\图像处理模块\文字读取器">
       <UniqueIdentifier>{43e25733-fab0-4075-903c-850b52d2a3f9}</UniqueIdentifier>
     </Filter>
@@ -169,17 +166,11 @@
     <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器">
       <UniqueIdentifier>{9c394b34-ec11-4d5b-bf97-99d48ab1ed99}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器\接口">
-      <UniqueIdentifier>{ea581c60-87e4-4cce-84c7-958d605bffa2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\控制器模块\图像处理模块\容器信息读取器">
       <UniqueIdentifier>{910d81bc-03bb-4644-94ca-226526eacc11}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\控制器模块\图像处理模块\人物信息读取器">
       <UniqueIdentifier>{74a8f8bb-1b14-41bc-adb2-9c3751dbc208}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\控制器模块\图像处理模块\图像读取器">
-      <UniqueIdentifier>{2d98c416-1190-43e3-ab85-f810d03a0893}</UniqueIdentifier>
     </Filter>
     <Filter Include="头文件\控制器模块\字体模块\字符类">
       <UniqueIdentifier>{4b5a207d-0a2d-45f6-995c-bbe9c8c9ffe4}</UniqueIdentifier>
@@ -214,17 +205,8 @@
     <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器\接口">
       <UniqueIdentifier>{e28ba4ff-5af0-4ddd-9dec-68f51d44557c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器\实现类">
-      <UniqueIdentifier>{7e02395b-4bf0-434f-bbc8-39e26164ee16}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\控制器模块\图像处理模块\人物信息读取器\实现类">
       <UniqueIdentifier>{81007287-c4ff-41f6-87cb-a4723e334245}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器\实现类">
-      <UniqueIdentifier>{1a34c022-4d09-4b9f-a910-112f3c55d388}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\控制器模块\图像处理模块\图像读取器\实现类">
-      <UniqueIdentifier>{a35d8294-e3ad-47d1-9904-8176d24d5ac6}</UniqueIdentifier>
     </Filter>
     <Filter Include="头文件\控制器模块\字体模块\字体工厂类">
       <UniqueIdentifier>{a134f162-457a-4cad-aeb2-a1eba3328062}</UniqueIdentifier>
@@ -255,9 +237,6 @@
     </Filter>
     <Filter Include="头文件\控制器模块\控制器模块\控制器实现类\图像依赖性控制器实现类">
       <UniqueIdentifier>{c62b2e15-dc14-4928-afc5-bb1801659094}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\控制器模块\图像处理模块\数据类">
-      <UniqueIdentifier>{ade5f0a3-d60c-4bcf-a608-e6ce2f33c03f}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\控制器模块\图像处理模块\数据类">
       <UniqueIdentifier>{db3b317e-94a6-45be-b291-048edd03ba6b}</UniqueIdentifier>
@@ -376,6 +355,27 @@
     <Filter Include="头文件\地图画建造实现模块\地图画建造操作器实现类\地图画建造器工厂">
       <UniqueIdentifier>{87f86316-b39b-4faf-8690-385440532b8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29">
+      <UniqueIdentifier>{953dd6a2-6ba4-4e71-b9cc-6aee6ec1067b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\接口">
+      <UniqueIdentifier>{ea581c60-87e4-4cce-84c7-958d605bffa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\实现类">
+      <UniqueIdentifier>{1a34c022-4d09-4b9f-a910-112f3c55d388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\数据类">
+      <UniqueIdentifier>{ade5f0a3-d60c-4bcf-a608-e6ce2f33c03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\图像读取器%28已废弃%29">
+      <UniqueIdentifier>{2d98c416-1190-43e3-ab85-f810d03a0893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\实现类">
+      <UniqueIdentifier>{a35d8294-e3ad-47d1-9904-8176d24d5ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\控制器模块\图像处理模块\人物信息读取器\实现类">
+      <UniqueIdentifier>{7e02395b-4bf0-434f-bbc8-39e26164ee16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MCItem.cpp">
@@ -423,11 +423,11 @@
     <ClCompile Include="UnrealCraftContainReader.cpp">
       <Filter>源文件\控制器模块\图像处理模块\容器信息读取器\实现</Filter>
     </ClCompile>
-    <ClCompile Include="UnrealCraftPlayerInfoReader.cpp">
+    <ClCompile Include="PlayerInfoReader120.cpp">
       <Filter>源文件\控制器模块\图像处理模块\人物信息读取器\实现类</Filter>
     </ClCompile>
-    <ClCompile Include="UnrealCraftWinReader.cpp">
-      <Filter>源文件\控制器模块\图像处理模块\图像读取器\实现类</Filter>
+    <ClCompile Include="WinReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\实现类</Filter>
     </ClCompile>
     <ClCompile Include="VectorFontFactory.cpp">
       <Filter>源文件\控制器模块\字体模块\字体工厂类</Filter>
@@ -501,6 +501,9 @@
     <ClCompile Include="MCScript.cpp">
       <Filter>源文件\脚本模块</Filter>
     </ClCompile>
+    <ClCompile Include="UnrealCraftPlayerInfoReader.cpp">
+      <Filter>源文件\控制器模块\图像处理模块\人物信息读取器\实现类</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MCItem.h">
@@ -537,7 +540,7 @@
       <Filter>头文件\控制器模块\容器模块\容器\箱子</Filter>
     </ClInclude>
     <ClInclude Include="ReadAllInfo.h">
-      <Filter>头文件\控制器模块\图像处理模块\图像读取器\接口</Filter>
+      <Filter>头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\接口</Filter>
     </ClInclude>
     <ClInclude Include="ReadString.h">
       <Filter>头文件\控制器模块\图像处理模块\文字读取器\接口</Filter>
@@ -569,11 +572,11 @@
     <ClInclude Include="ReadPlayerInfo.h">
       <Filter>头文件\控制器模块\图像处理模块\人物信息读取器\接口</Filter>
     </ClInclude>
-    <ClInclude Include="UnrealCraftPlayerInfoReader.h">
+    <ClInclude Include="PlayerInfoReader120.h">
       <Filter>头文件\控制器模块\图像处理模块\人物信息读取器\实现类</Filter>
     </ClInclude>
-    <ClInclude Include="UnrealCraftWinReader.h">
-      <Filter>头文件\控制器模块\图像处理模块\图像读取器\实现类</Filter>
+    <ClInclude Include="WinReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\实现类</Filter>
     </ClInclude>
     <ClInclude Include="VectorFontFactory.h">
       <Filter>头文件\控制器模块\字体模块\字体工厂类</Filter>
@@ -621,7 +624,7 @@
       <Filter>头文件\控制器模块\控制器模块\控制器实现类\图像依赖性控制器实现类</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInfo.h">
-      <Filter>头文件\控制器模块\图像处理模块\数据类</Filter>
+      <Filter>头文件\控制器模块\图像处理模块\图像读取器%28已废弃%29\数据类</Filter>
     </ClInclude>
     <ClInclude Include="ColorItem.h">
       <Filter>头文件\地图画建造逻辑模块\颜色物品模块\物品</Filter>
@@ -706,6 +709,9 @@
     </ClInclude>
     <ClInclude Include="MCScript.h">
       <Filter>头文件\脚本模块</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealCraftPlayerInfoReader.h">
+      <Filter>头文件\控制器模块\图像处理模块\人物信息读取器\实现类</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

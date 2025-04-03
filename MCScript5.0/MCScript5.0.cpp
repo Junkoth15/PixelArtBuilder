@@ -18,23 +18,24 @@ using namespace imageHandle;
 
 //测试注释
 
-
-
 HWND window;
 string window_name;
 shared_ptr<UnrealCraftPerformer> performer{};
-string folder = "C:/Users/Junko/Desktop/图集/";
+string folder = "C:/Users/Junko/Desktop/images/测试图集";
+string server_name = "UnrealCraft虚幻世界";
+//string server_name = "失落世界";
+
 TimeCounter tc(TimeCounterMode::MILISECOND);
 
 int main()
 {
 	SetProcessDPIAware();
+	cv::utils::logging::setLogLevel(utils::logging::LOG_LEVEL_SILENT);
 	try
 	{
 	//UnrealCraft虚幻世界
 	//失落世界
-		cv::utils::logging::setLogLevel(utils::logging::LOG_LEVEL_SILENT);
-		if (searchWindow("UnrealCraft虚幻世界", window, window_name)) {
+		if (searchWindow(server_name, window, window_name)) {
 			performer = make_shared<UnrealCraftPerformer>(window);
 			cout << window_name << endl;
 		}
@@ -49,8 +50,52 @@ int main()
 			}
 			ch = _getch();
 			if (ch == '-') {
+
+				/*while (true) {
+					CImage cimg;
+					getWindowPic(window, cimg, 0, 0, 1740, 945, 0, 0);
+					Mat image = Cimage2Mat(cimg);
+					cv::cvtColor(image, image, cv::COLOR_BGRA2BGR);
+					imshow("", image);
+					saveMat(folder + "/index2.png", image);
+					waitKey(0);
+					return 0;
+				}*/
 				performer->setWindowSize(1740, 945);
+				Sleep(500);
 				performer->backGame();
+				Sleep(500);
+				Mat img;
+				tc.begin();
+				for (int i = 0; i < 1000000; i++) {
+					performer->getWindowPic(img);
+					performer->analysisPic(img);
+
+					PlayerStatus p;
+					if (performer->ifF3CanRead()) {
+						p = performer->getAllPlayerInfo();
+						cout << p.to_string() << endl;
+					}
+					/*BlockInfo block;
+					if (performer->getLookingAtBlock(block)) {
+						cout << block.to_string() << endl;
+					}*/
+					usleep(100);
+				}
+				cout << tc.end();
+				return 0;
+
+				while (true) {
+					performer->getWindowPic(img);
+					performer->analysisPic(img);
+					PlayerPos pos;
+					performer->getPlayerPosition(pos);
+					cout << pos.to_string() << endl;
+					Sleep(100);
+				}			
+				imwrite(folder+"/F3_无index.png", img);
+				
+				/*performer->backGame();
 				while (true) {
 					CImage img;
 					performer->getWindowPic(img);
@@ -59,7 +104,7 @@ int main()
 						performer->putBlock(false);
 					}
 					usleep(30);
-				}
+				}*/
 			}
 			if (ch =='.') {
 				MCScript script(performer.get());
@@ -68,54 +113,28 @@ int main()
 			}
 
 			if (ch == ';') {
-				performer->backGame();
-				performer->guaji(10000);
+				cout << "测试" << endl;
+				cout<<(int)ASCIIKeyCode2KeyBoardCode(ASCIIKeyCode::CTRL)<<endl;
+
+
+				/*performer->backGame();
+				performer->guaji(10000);*/
 
 			}
 			if (ch == ']') {
-				/*string path = "C:/Users/Junko/Desktop/images/images/亚托莉俯视1_1_钻石_石英_砂岩_黏土_浮冰.png";
-				int begin_line = 27;
-				int end_line = 128;
-
-				cout << "建造路径:" << path << endl;
-				cout << "开始行:" << begin_line << endl;
-				cout << "结束行:" << end_line << endl;
 				performer->setWindowSize(1740, 945);
-				Mat mat = imread(path, cv::ImreadModes::IMREAD_UNCHANGED);*/
-				performer->setWindowSize(1740, 945);
-				Sleep(10000);
+				Sleep(3000);
 				shared_ptr<BuildMapPic> builder = UnrealCraftMPBFactory::getUnrealCraftMPB(window);
 				MPBQuickStarter starter(builder.get(), performer.get());
 				starter.start();
 			}
 			if (ch == '[') {
 				performer->setWindowSize(1740, 945);
-				CImage img;
+				Mat img;
 				performer->backGame();
 				Sleep(1000);
 				performer->getWindowPic(img);
-				//imwrite(folder + "去主城.png", Cimage2Mat(img));
-				UnrealCraftBox box(BoxType::BIG);
-				//UnrealCraftBox box(BoxType::SMALL);
-				performer->readContain(img, box);
-				cout << box.getAllLatticeInfo();
-				/*performer->readPackage(img);
-				cout << performer->getPackageInfo();*/
-
-
-				/*Mat package = imread("C:/Users/Junko/Desktop/橡木板_背包.png",cv::ImreadModes::IMREAD_UNCHANGED);
-				Mat box = imread("C:/Users/Junko/Desktop/橡木板_箱子.png", cv::ImreadModes::IMREAD_UNCHANGED);
-				for (int y = 0; y < package.rows; y++) {
-					for (int x = 0; x < package.cols; x++) {
-						if (package.at<Vec4b>(y, x)[3] != 0) {
-							if (getColor(package, y, x) != getColor(box, y, x)) {
-								cout << y << " " << x << endl;
-							}
-						}
-					}
-				}*/
-
-
+				saveMat(folder + "/有index2.png",img);
 			}
 			Sleep(1);
 		}
@@ -123,7 +142,7 @@ int main()
 	}
 	catch (const std::exception& e)
 	{
-		Logger::log(e.what());
+		LogError(e.what());
 		return 0;
 	}
 }

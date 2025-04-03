@@ -49,9 +49,9 @@ void UnrealCraftItemMapGetter::setStatus(Status status)
 
 void UnrealCraftItemMapGetter::original()
 {
-	Logger::log("UnrealCraftItemMapGetter::original", "need_map:");
-	Shower::showMap(need_map);
-	Logger::log("UnrealCraftItemMapGetter::original", "");
+	LogDebug("need_map:\n"+Shower::getMapStr(need_map));
+	//Shower::showMap(need_map);
+	LogDebug("begin");
 	page = 1;
 	next_page_is_bigger = true;
 	//读取末影箱与背包
@@ -67,7 +67,7 @@ void UnrealCraftItemMapGetter::original()
 
 void UnrealCraftItemMapGetter::selecting()
 {
-	Logger::log("UnrealCraftItemMapGetter::selecting", "");
+	LogDebug("begin");
 	while (true) {
 		//读商店
 		readShop();
@@ -91,7 +91,7 @@ void UnrealCraftItemMapGetter::selecting()
 
 void UnrealCraftItemMapGetter::buying()
 {
-	Logger::log("UnrealCraftItemMapGetter::buying", "");
+	LogDebug("begin");
 	int num_to_buy = need_map.at(item_to_buy);
 	const MCItem& item = item_map->item_map.at(item_to_buy);
 	auto package = performer->getPackage();
@@ -127,7 +127,7 @@ void UnrealCraftItemMapGetter::buying()
 
 void UnrealCraftItemMapGetter::arranging()
 {
-	Logger::log("UnrealCraftItemMapGetter::arranging", "");
+	LogDebug("begin");
 	//打开末影箱
 	openEnderChest();
 	//刷新背包和末影箱
@@ -159,7 +159,7 @@ void UnrealCraftItemMapGetter::arranging()
 
 void UnrealCraftItemMapGetter::checking()
 {
-	Logger::log("UnrealCraftItemMapGetter::checking", "");
+	LogDebug("begin");
 	openEnderChest();
 	readEnderChestAndPackage();
 
@@ -184,10 +184,10 @@ void UnrealCraftItemMapGetter::checking()
 		}
 
 	}
-	Logger::log("UnrealCraftItemMapGetter::checking", "need_map_copy:");
-	Shower::showMap(need_map_copy);
-	Logger::log("UnrealCraftItemMapGetter::checking", "own_map:");
-	Shower::showMap(own_map);
+	LogDebug("need_map_copy:\n" + Shower::getMapStr(need_map_copy));
+	//Shower::showMap(need_map_copy);
+	LogDebug("own_map:\n" + Shower::getMapStr(own_map));
+	//Shower::showMap(own_map);
 
 	map<string, int> lack_map = mapMinus(need_map_copy, own_map);
 	closeEnderChest();
@@ -204,7 +204,7 @@ void UnrealCraftItemMapGetter::checking()
 
 void UnrealCraftItemMapGetter::end()
 {
-	Logger::log("UnrealCraftItemMapGetter::end", "");
+	LogDebug("begin");
 }
 
 void UnrealCraftItemMapGetter::openShop()
@@ -226,7 +226,7 @@ void UnrealCraftItemMapGetter::readShop()
 	performer->moveMouseToPoint(0, 0, false);
 	usleep(200);
 	//读箱子和背包，注意背包设置为大箱子模式
-	CImage img;
+	Mat img;
 	performer->getWindowPic(img);
 	performer->readContain(img,shop);
 	performer->getPackage()->setPackageStatus(PackageStatus::USE_BIG_BOX);
@@ -306,7 +306,7 @@ void UnrealCraftItemMapGetter::readEnderChestAndPackage()
 	auto p = performer->getMousePosition();
 	performer->moveMouseToPoint(0, 0, false);
 	usleep(200);
-	CImage img;
+	Mat img;
 	performer->getWindowPic(img);
 	performer->getPackage()->setPackageStatus(PackageStatus::USE_SMALL_BOX);
 	performer->readPackage(img);

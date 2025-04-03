@@ -1,7 +1,9 @@
 #pragma once
 #include"ImagePerformer.h"
 #include"NoImagePerformer120.h"
-#include"ReadAllInfo.h"
+//#include"ReadAllInfo.h"
+#include"ReadPlayerInfo.h"
+#include"ReadContain.h"
 
 /// <summary>
 /// 有图像识别的操控类
@@ -9,17 +11,28 @@
 /// 利用ImageHandler成员处理图像
 /// 最终实现有图像识别的操控类
 /// </summary>
-class ImagePerformer120 :
+class ImagePerformer120:
 	public ImagePerformer
 {
 protected:
-	shared_ptr<ReadAllInfo> image_handler;
+	//shared_ptr<ReadAllInfo> image_handler;
 	shared_ptr<NoImagePerformer> performer;
+	shared_ptr<ReadPlayerInfo> player_reader;
+	shared_ptr<ReadContain> contain_reader;
 
 public:
-	ImagePerformer120(HWND window, shared_ptr<NoImagePerformer> performer, shared_ptr<ReadAllInfo> image_handler);
-	shared_ptr<ReadAllInfo> setImageReader(shared_ptr<ReadAllInfo> reader);
-	shared_ptr<ReadAllInfo> getImageReader();
+	//ImagePerformer120();
+	ImagePerformer120(
+		HWND window,
+		shared_ptr<NoImagePerformer> performer,
+		shared_ptr<ReadPlayerInfo> player_reader,
+		shared_ptr<ReadContain> contain_reader);
+	//shared_ptr<ReadAllInfo> setImageReader(shared_ptr<ReadAllInfo> reader);
+	//shared_ptr<ReadAllInfo> getImageReader();
+	shared_ptr<ReadPlayerInfo> setPlayerReader(shared_ptr<ReadPlayerInfo> player_reader);
+	shared_ptr<ReadPlayerInfo> getPlayerReader();
+	shared_ptr<ReadContain> setContainReader(shared_ptr<ReadContain>);
+	shared_ptr<ReadContain> getContainReader();
 	shared_ptr<NoImagePerformer> setPerformer(shared_ptr<NoImagePerformer> performer);
 	shared_ptr<NoImagePerformer> getPerformer();
 
@@ -30,19 +43,6 @@ public:
 	void winChangeFace_y(float rad_begin, float rad_target, float rad_speed, bool virtualAction) override;
 	void winMovePlayerPosition_inDistance(
 		int direction, float distance, float move_speed, bool shift, bool virtualAction) override;
-
-	// 通过 ReadAllInfoCImage 继承
-	PlayerStatus getAllPlayerInfo(CImage img)override;
-	bool isLookingAtBlock(const CImage& f3_image) override;
-	bool getLookingAtBlock(const CImage& f3_image,BlockInfo& block_info) override;
-	bool getLookingAtBlockName(const CImage& f3_image, string& blockname) override;
-	bool getLookingAtBlockPos(const CImage& f3_image, BlockPos& block_pos) override;
-	bool ifPosCanRead(const CImage& f3_image) override;
-	bool ifDirectionCanRead(const CImage& f3_image) override;
-	bool getPlayerPosition(const CImage& f3_image,PlayerPos& player_pos) override;
-	bool getPlayerFacingDirection(const CImage& f3_image,PlayerFacing& player_facing) override;
-	void readContain(const CImage& f3_img, Contain& contain) override;
-	void readPackage(const CImage& img) override;
 
 	// 通过 ImagePerformer 继承
 	void keyEvent(ASCIIKeyCode key, KeyEvent key_event) override;
@@ -78,23 +78,35 @@ public:
 	shared_ptr<Package> getPackage() override;
 	shared_ptr<Package> setPackage(shared_ptr<Package> package) override;
 	void open_Or_closePackage() override;
-	void getWindowPic(WindowCImage& image) override;
-	void getWindowPic(WindowCImage& image, int width, int height, int left_x, int top_y) override;
-	void getF3Pic(WindowCImage& image) override;
+	void getWindowPic(Mat& image) override;
+	void getWindowPic(Mat& image, int width, int height, int left_x, int top_y) override;
+	void getF3Pic(Mat& image) override;
 
 	// 通过 ImagePerformer 继承
 	int getHand() override;
 	void setHand(int hand) override;
 	void changeHand(int hand) override;
 
-
 	// 通过 ImagePerformer 继承
 	void putBlock(bool change_package) override;
-
 
 	// 通过 ImagePerformer 继承
 	void moveMouseAndClickLeft(int x, int y, bool absolute, int move_delay, int click_delay) override;
 
+	// 通过 ImagePerformer 继承
+	void analysisPic(const Mat& img) override;
+	bool isLookingAtBlock() override;
+	bool getLookingAtBlock(BlockInfo& block_info) override;
+	bool getLookingAtBlockName(string& name) override;
+	bool getLookingAtBlockPos(BlockPos& block_pos) override;
+	bool ifF3CanRead() override;
+	bool getPlayerPosition(PlayerPos& player_pos) override;
+	bool getPlayerFacing(PlayerFacing& player_facing) override;
+	void readContain(const Mat& mat, Contain& contain) override;
+	void readPackage(const Mat& mat)override;
+
+	// 通过 ImagePerformer 继承
+	PlayerStatus getAllPlayerInfo() override;
 };
 
 

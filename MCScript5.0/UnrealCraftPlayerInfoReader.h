@@ -1,35 +1,28 @@
 #pragma once
-#include"ReadPlayerInfo.h"
-#include"ReadString.h"
-class UnrealCraftPlayerInfoReader:
-	public ReadPlayerInfo
+#include"PlayerInfoReader120.h"
+class UnrealCraftPlayerInfoReader:public PlayerInfoReader120
 {
 public:
-	static Scalar f3_font_color;
-	static Rect player_pos_rect;
-	static Rect player_facing_rect;
-	static Rect looking_at_block_name_rect;
-	static Rect looking_at_block_pos_rect;
-
-protected:
-	shared_ptr<const ReadString> str_reader;
+	static Rect index_pool_rect;
+	static Rect block_name_rect_up;
+	static Rect block_pos_rect_up;
+	static Rect block_name_rect_down;
+	static Rect block_pos_rect_down;
 public:
 	UnrealCraftPlayerInfoReader();
-	// 通过 ReadPlayerInfo 继承
-	bool isLookingAtBlock(const Mat& f3_image) override;
-	bool getLookingAtBlock(const Mat& f3_image, BlockInfo& block_info) override;
-	bool getLookingAtBlockName(const Mat& f3_image,string& name) override;
-	bool getLookingAtBlockPos(const Mat& f3_image,BlockPos& block_pos) override;
-	bool ifPosCanRead(const Mat& image) override;
-	bool ifDirectionCanRead(const Mat& image) override;
-	bool getPlayerPosition(const Mat& image, PlayerPos& player_pos) override;
-	bool getPlayerFacingDirection(const Mat& image, PlayerFacing& player_facing) override;
-
-private:
+protected:
+	UpdatedStatus _offset_updated;
+	int _offset;
+protected:
+	//判断block_info的向下偏移量
+	bool judgeOffset();
+	//获取正确的block_name_rect
+	Rect getBlockNameRect()override;
+	//获取正确的block_pos_rect
+	Rect getBlockPosRect()override;
+	//清空数据
+	virtual void clearData()override;
 	//是否指向了方块，指向不代表能够到方块
-	bool isPointingToBlock(const Mat& image);
-	//若from_left_top为false，则rect的x和y指的是区域右上角坐标
-	string readF3Line(const Mat& img, Rect rect, bool from_left_top = true);
-
+	bool isPointingToBlock()override;
 };
 

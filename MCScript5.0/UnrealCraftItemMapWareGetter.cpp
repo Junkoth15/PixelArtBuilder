@@ -2,14 +2,18 @@
 #include"MCItemMapFactory.h"
 #include"FileLoader.h"
 #include"Tools.h"
+#include<sstream>
 map<string, int> UnrealCraftItemMapWareGetter::item_index_map;
 string UnrealCraftItemMapWareGetter::warehouse;
+
+int UnrealCraftItemMapWareGetter::MAX_WAIT_MILITIME=10000;
 
 UnrealCraftItemMapWareGetter::UnrealCraftItemMapWareGetter(
 	ImagePerformer* performer, Box* ender_chest, string mc_item_map_path, string config_path):
 	performer(performer),
 	ender_chest(ender_chest),
-	box(BoxType::BIG)
+	box(BoxType::BIG),
+	tc(TimeCounterMode::MILISECOND)
 {
 	load(mc_item_map_path, config_path);
 }
@@ -80,9 +84,9 @@ void UnrealCraftItemMapWareGetter::setStatus(Status status)
 
 void UnrealCraftItemMapWareGetter::original()
 {
-	Logger::log("UnrealCraftItemMapWareGetter::original", "need_map:");
-	showPairVector(need_vec);
-	Logger::log("UnrealCraftItemMapWareGetter::original", "");
+	LogDebug("begin");
+	LogDebug("need_map:\n"+getPairVectorStr(need_vec));
+	//getPairVectorStr(need_vec);
 	//读取末影箱与背包
 	openEnderChest();
 	readEnderChestAndPackage();
@@ -94,7 +98,7 @@ void UnrealCraftItemMapWareGetter::selecting()
 {
 	pair<string,int> name_num_pair = need_vec[item_to_get_index];
 	static int first_item_x;
-	Logger::log("UnrealCraftItemMapGetter::selecting", name_num_pair.first+"*"+std::to_string(name_num_pair.second));
+	LogDebug(name_num_pair.first+"*"+std::to_string(name_num_pair.second));
 
 
 	//去合适的位置
@@ -152,7 +156,7 @@ void UnrealCraftItemMapWareGetter::selecting()
 
 void UnrealCraftItemMapWareGetter::getting()
 {
-	Logger::log("UnrealCraftItemMapWareGetter::getting", "");
+	LogDebug("begin");
 	//先读取箱子
 	readBox();
 	pair<string, int>& name_num_pair = need_vec[item_to_get_index];
@@ -195,7 +199,7 @@ void UnrealCraftItemMapWareGetter::getting()
 
 void UnrealCraftItemMapWareGetter::arranging()
 {
-	Logger::log("UnrealCraftItemMapWareGetter::arranging", "");
+	LogDebug("begin");
 	openEnderChest();	//打开末影箱
 	readEnderChestAndPackage();	//刷新背包和末影箱
 	shiftDown();	//按下SHIFT
@@ -223,7 +227,7 @@ void UnrealCraftItemMapWareGetter::arranging()
 
 void UnrealCraftItemMapWareGetter::checking()
 {
-	Logger::log("UnrealCraftItemMapGetter::checking", "");
+	LogDebug("begin");
 	openEnderChest();
 	readEnderChestAndPackage();
 
@@ -252,10 +256,10 @@ void UnrealCraftItemMapWareGetter::checking()
 	for (auto pair : need_vec_copy) {
 		need_map_copy.insert(pair);
 	}
-	Logger::log("UnrealCraftItemMapGetter::checking", "need_map_copy:");
-	Shower::showMap(need_map_copy);
-	Logger::log("UnrealCraftItemMapGetter::checking", "own_map:");
-	Shower::showMap(own_map);
+	LogDebug("need_map_copy:\n" + Shower::getMapStr(need_map_copy));
+	//Shower::showMap(need_map_copy);
+	LogDebug("own_map:\n" + Shower::getMapStr(own_map));
+	//Shower::showMap(own_map);
 
 	map<string, int> lack_map = MapCounter::minusMap(need_map_copy, own_map);
 	closeEnderChest();
@@ -271,17 +275,43 @@ void UnrealCraftItemMapWareGetter::checking()
 
 void UnrealCraftItemMapWareGetter::end()
 {
-	Logger::log("UnrealCraftItemMapWareGetter::end", "");
+	LogDebug("begin");
 }
 
 void UnrealCraftItemMapWareGetter::openBox()
 {
-	performer->mouseEvent(MouseEvent::ClickRight); usleep(5000);
+	//performer->mouseEvent(MouseEvent::ClickRight); usleep(5000);
+	performer->mouseEvent(MouseEvent::ClickRight); 	usleep(200);
+	tc.begin();
+	do {
+		Mat mat;
+		performer->getF3Pic(mat);
+		performer->analysisPic(mat);
+		//若F3不可读，则开启了
+		if (!performer->ifF3CanRead()) {
+			usleep(500);
+			return;
+		}
+	} while (tc.end()<MAX_WAIT_MILITIME);
+	ThrowException::throwException(__FUNCTION__, "打开箱子超时!");
 }
 
 void UnrealCraftItemMapWareGetter::closeBox()
 {
-	performer->open_Or_closePackage(); usleep(2000);
+	//performer->open_Or_closePackage(); usleep(2000);
+	performer->open_Or_closePackage(); usleep(200);
+	tc.begin();
+	do {
+		Mat mat;
+		performer->getF3Pic(mat);
+		performer->analysisPic(mat);
+		//若F3不可读，则关闭了
+		if (performer->ifF3CanRead()) {
+			usleep(500);
+			return;
+		}
+	} while (tc.end() < MAX_WAIT_MILITIME);
+	ThrowException::throwException(__FUNCTION__, "关闭箱子超时!");
 }
 
 void UnrealCraftItemMapWareGetter::readBox()
@@ -289,7 +319,7 @@ void UnrealCraftItemMapWareGetter::readBox()
 	auto p = performer->getMousePosition();
 	performer->moveMouseToPoint(0, 0, false);usleep(200);
 	//读箱子和背包，注意背包设置为大箱子模式
-	CImage img;
+	Mat img;
 	performer->getWindowPic(img);
 	performer->readContain(img, box);
 	performer->getPackage()->setPackageStatus(PackageStatus::USE_BIG_BOX);
@@ -326,8 +356,21 @@ void UnrealCraftItemMapWareGetter::getItemFromBox(int x, int y)
 
 void UnrealCraftItemMapWareGetter::openEnderChest()
 {
-	performer->useInstruction("/enderchest");
-	usleep(3000);
+	//performer->useInstruction("/enderchest");	usleep(3000);
+	performer->useInstruction("/enderchest"); usleep(200);
+	tc.begin();
+	do {
+		Mat mat;
+		performer->getF3Pic(mat);
+		performer->analysisPic(mat);
+		//若F3不可读，则开启了
+		if (!performer->ifF3CanRead()) {
+			usleep(500);
+			return;
+		}
+	} while (tc.end() < MAX_WAIT_MILITIME);
+	ThrowException::throwException(__FUNCTION__, "打开末影箱超时!");
+
 }
 
 void UnrealCraftItemMapWareGetter::readEnderChestAndPackage()
@@ -336,7 +379,7 @@ void UnrealCraftItemMapWareGetter::readEnderChestAndPackage()
 	auto p = performer->getMousePosition();
 	performer->moveMouseToPoint(0, 0, false);
 	usleep(200);
-	CImage img;
+	Mat img;
 	performer->getWindowPic(img);
 	performer->getPackage()->setPackageStatus(PackageStatus::USE_SMALL_BOX);
 	performer->readPackage(img);
@@ -347,27 +390,72 @@ void UnrealCraftItemMapWareGetter::readEnderChestAndPackage()
 
 void UnrealCraftItemMapWareGetter::closeEnderChest()
 {
-	performer->open_Or_closePackage();
-	usleep(1000);
+	//performer->open_Or_closePackage();usleep(1000);
+	performer->open_Or_closePackage(); usleep(200);
+	tc.begin();
+	do {
+		Mat mat;
+		performer->getF3Pic(mat);
+		performer->analysisPic(mat);
+		//若F3可读，则关闭了
+		if (performer->ifF3CanRead()) {
+			usleep(500);
+			return;
+		}
+	} while (tc.end() < MAX_WAIT_MILITIME);
+	ThrowException::throwException(__FUNCTION__, "关闭末影箱超时!");
 }
 
-void UnrealCraftItemMapWareGetter::showPairVector(const vector<pair<string, int>>& vec)
+string UnrealCraftItemMapWareGetter::getPairVectorStr(const vector<pair<string, int>>& vec)
 {
-	for (auto pair : vec) {
-		std::cout << pair.first << " " << pair.second << std::endl;
+	std::stringstream ss;
+	for (const auto& pair : vec) {
+		ss << pair.first << " " << pair.second << std::endl;
 	}
+	return ss.str();
 }
 
 PlayerStatus UnrealCraftItemMapWareGetter::getPlayerStatus()
 {
-	CImage img;
+	Mat img;
 	performer->getWindowPic(img);
-	return performer->getAllPlayerInfo(img);
+	performer->analysisPic(img);
+	return performer->getAllPlayerInfo();
 }
 
 void UnrealCraftItemMapWareGetter::goTo(string name)
 {
-	performer->resTp(name); usleep(6000);
+	//performer->resTp(name); usleep(6000);
+
+	do
+	{
+		Mat img;
+		performer->getF3Pic(img);
+		performer->analysisPic(img);
+		PlayerPos old_pos;
+		if (!performer->getPlayerPosition(old_pos)) {
+			break;
+		}
+		performer->resTp(name);usleep(500);
+		//不断等待角色长距离移动，直至超时
+		tc.begin();
+		do {
+			performer->getF3Pic(img);
+			performer->analysisPic(img);
+			PlayerPos new_pos;
+			if (!performer->getPlayerPosition(new_pos)) {
+				break;
+			}
+			//长距离移动，结束
+			if (countDistance(old_pos.x, old_pos.y, old_pos.z, new_pos.x, new_pos.y, new_pos.z) > 0.5) {
+				usleep(500);
+				return;
+			}
+			usleep(100);
+		} while (tc.end() < MAX_WAIT_MILITIME);
+	} while (false);
+
+	ThrowException::throwException(__FUNCTION__, name + "传送错误!");
 }
 
 void UnrealCraftItemMapWareGetter::goToSuitablePos(pair<string, int> name_num_pair,int& first_item_x)
@@ -440,4 +528,13 @@ void UnrealCraftItemMapWareGetter::goToSuitablePos(pair<string, int> name_num_pa
 		//Logger::log("UnrealCraftItemMapWareGetter::goToSuitablePos2"
 		//	, "index:" + to_string(concreate_index) + " " + to_string(clay_index));
 	}
+}
+
+double UnrealCraftItemMapWareGetter::countDistance(double x1, double y1, double z1, double x2, double y2, double z2)
+{
+	return sqrt(
+		(x1 - x2) * (x1 - x2) +
+		(y1 - y2) * (y1 - y2) +
+		(z1 - z2) * (z1 - z2)
+	);
 }

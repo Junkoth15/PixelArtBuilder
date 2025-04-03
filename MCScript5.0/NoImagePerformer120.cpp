@@ -1,6 +1,7 @@
 #include<opencv2/opencv.hpp>
 #include"NoImagePerformer120.h"
 #include"Tools.h"
+#include<Windows.h>
 
 NoImagePerformer120::NoImagePerformer120(HWND window, std::shared_ptr<Package> package) :
 	package(package),
@@ -24,7 +25,7 @@ void NoImagePerformer120::keyEvent(ASCIIKeyCode key, KeyEvent key_event)
 		break;
 	case KeyEvent::KeyUp:keybd_event((byte)key, (byte)ASCIIKeyCode2KeyBoardCode(key), 2, 0);
 		break;
-	case KeyEvent::ClickKey:keyEvent(key, KeyEvent::KeyDown); usleep(0); keyEvent(key, KeyEvent::KeyUp);
+	case KeyEvent::ClickKey:keyEvent(key, KeyEvent::KeyDown); usleep(50); keyEvent(key, KeyEvent::KeyUp);
 		break;
 	default:
 		break;
@@ -421,16 +422,13 @@ void NoImagePerformer120::resTp(string destination)
 
 void NoImagePerformer120::useInstruction(string instruction)
 {
-	keyEvent(ASCIIKeyCode::T, KeyEvent::ClickKey);
-	usleep(400);
-	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyDown);
+	keyEvent(ASCIIKeyCode::T, KeyEvent::ClickKey);usleep(400);
 	//°ÑÃüÁîÕ³Ìùµ½¼ôÌù°å
-	setClipbar(instruction); 
-	usleep(200);
-	keyEvent(ASCIIKeyCode::V, KeyEvent::ClickKey);
-	usleep(200);
-	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyUp);
-	usleep(200);
+	setClipbar(instruction);
+
+	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyDown);usleep(200);
+	keyEvent(ASCIIKeyCode::V, KeyEvent::ClickKey);usleep(200);
+	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyUp);usleep(200);
 	keyEvent(ASCIIKeyCode::ENTER, KeyEvent::ClickKey);
 }
 
@@ -576,11 +574,11 @@ KeyBoardCode ASCIIKeyCode2KeyBoardCode(ASCIIKeyCode keycode)
 		break;
 	case ASCIIKeyCode::XIEGANG:return KeyBoardCode::XIEGANG;
 		break;
-	case ASCIIKeyCode::CTRL:
+	case ASCIIKeyCode::CTRL:return KeyBoardCode::CTRL;
 		break;
-	case ASCIIKeyCode::ENTER:
+	case ASCIIKeyCode::ENTER:return KeyBoardCode::NONE;
 		break;
-	default:
+	default:return KeyBoardCode::NONE;
 		break;
 	}
 	return {};
