@@ -25,8 +25,8 @@ void NoImagePerformer120::keyEvent(ASCIIKeyCode key, KeyEvent key_event)
 		break;
 	case KeyEvent::KeyUp:keybd_event((byte)key, (byte)ASCIIKeyCode2KeyBoardCode(key), 2, 0);
 		break;
-	case KeyEvent::ClickKey:keyEvent(key, KeyEvent::KeyDown); usleep(50); keyEvent(key, KeyEvent::KeyUp);
-		break;
+	//case KeyEvent::ClickKey:keyEvent(key, KeyEvent::KeyDown); usleep(60); keyEvent(key, KeyEvent::KeyUp);
+	//	break;
 	default:
 		break;
 	}
@@ -51,7 +51,8 @@ void NoImagePerformer120::clickNumberKey(int num)
 		break;
 	}
 
-	keyEvent(ascii_key_code, KeyEvent::ClickKey);
+	//keyEvent(ascii_key_code, KeyEvent::ClickKey);
+	clickKey(ascii_key_code);
 }
 
 void NoImagePerformer120::clickKey(ASCIIKeyCode key, int interval_time, int delay_time)
@@ -160,7 +161,8 @@ std::shared_ptr<Package> NoImagePerformer120::getPackage()
 
 void NoImagePerformer120::open_Or_closePackage()
 {
-	keyEvent(ASCIIKeyCode::E, KeyEvent::ClickKey);
+	//keyEvent(ASCIIKeyCode::E, KeyEvent::ClickKey);
+	clickKey(ASCIIKeyCode::E);
 }
 
 void NoImagePerformer120::turnHead_x(float rad, float rad_speed, bool right)
@@ -422,14 +424,17 @@ void NoImagePerformer120::resTp(string destination)
 
 void NoImagePerformer120::useInstruction(string instruction)
 {
-	keyEvent(ASCIIKeyCode::T, KeyEvent::ClickKey);usleep(400);
+	//keyEvent(ASCIIKeyCode::T, KeyEvent::ClickKey);usleep(400);
+	clickKey(ASCIIKeyCode::T); usleep(400);
 	//°ÑÃüÁîÕ³Ìùµ½¼ôÌù°å
-	setClipbar(instruction);
+	setClipbar(instruction); usleep(200);
 
-	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyDown);usleep(200);
-	keyEvent(ASCIIKeyCode::V, KeyEvent::ClickKey);usleep(200);
+	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyDown);usleep(300);
+	//keyEvent(ASCIIKeyCode::V, KeyEvent::ClickKey);usleep(200);
+	clickKey(ASCIIKeyCode::V, 120, 200);
 	keyEvent(ASCIIKeyCode::CTRL, KeyEvent::KeyUp);usleep(200);
-	keyEvent(ASCIIKeyCode::ENTER, KeyEvent::ClickKey);
+	//keyEvent(ASCIIKeyCode::ENTER, KeyEvent::ClickKey);
+	clickKey(ASCIIKeyCode::ENTER);
 }
 
 string NoImagePerformer120::getPackageInfo()
@@ -449,9 +454,11 @@ void NoImagePerformer120::setHand(int hand)
 
 void NoImagePerformer120::changeHand(int hand)
 {
-	if (!(1 <= hand && hand <= 9))
-		ThrowException::throwException("NoImagePerformer120::changeHand", "hand³¬½ç:" + std::to_string(hand));
-	clickNumberKey(hand);
+	if (1 <= hand && hand <= 9) {
+		clickNumberKey(hand);
+		return;
+	}
+	ThrowException::throwException("NoImagePerformer120::changeHand", "hand³¬½ç:" + std::to_string(hand));
 }
 
 void NoImagePerformer120::moveMouseAndClickLeft(int x, int y, bool absolute, int move_delay, int click_delay)

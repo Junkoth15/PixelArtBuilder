@@ -75,6 +75,7 @@ void MapBuilder::buildOneLine(const ColorItemMat& mat, int now_line,int end_line
 		const vector<ColorItem>& item_line = mat.mat[i];
 		color_item_vec.insert(color_item_vec.end(), item_line.begin(), item_line.end());
 		item_num += item_line.size();
+		//物品栏不可能放得下
 		if (item_num > 64 * 9) break;
 	}
 	line_builder->buildLine(color_item_vec,line_length-1);

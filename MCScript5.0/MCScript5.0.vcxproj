@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(ProjectDir)Json\include\json;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(ProjectDir)\Json\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\environment\opencv\opencv\build\include\opencv2;C:\environment\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\environment\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\environment\opencv\opencv\build\include\opencv2;E:\environment\opencv\opencv\build\include;$(ProjectDir)Json\include\json;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\environment\opencv\opencv\build\x64\vc16\lib;$(ProjectDir)\Json\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -117,7 +117,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_world470d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world470d.lib;jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,7 +135,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_world470.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world470.lib;jsoncpp_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -145,7 +145,7 @@
     <ClCompile Include="ColorItemSetFactory.cpp" />
     <ClCompile Include="ContainReader.cpp" />
     <ClCompile Include="FileLoader.cpp" />
-    <ClCompile Include="FileLoaderException.cpp" />
+    <ClCompile Include="FileLoaderOpenException.cpp" />
     <ClCompile Include="ImagePerformer120.cpp" />
     <ClCompile Include="ItemConverter.cpp" />
     <ClCompile Include="MapCounter.cpp" />
@@ -195,7 +195,7 @@
     <ClInclude Include="Contain.h" />
     <ClInclude Include="ContainReader.h" />
     <ClInclude Include="FileLoader.h" />
-    <ClInclude Include="FileLoaderException.h" />
+    <ClInclude Include="FileLoaderOpenException.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="GetItemMap.h" />
     <ClInclude Include="HandControl.h" />

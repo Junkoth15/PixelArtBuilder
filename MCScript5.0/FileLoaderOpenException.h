@@ -4,10 +4,10 @@
 class FileLoaderOpenException:
 	public std::runtime_error
 {
-private:
-	string message;
+//private:
+//	string message;
 public:
 	FileLoaderOpenException(const string& message);
-	virtual const char* what()const override;
+	//virtual const char* what()const override;
 };
 

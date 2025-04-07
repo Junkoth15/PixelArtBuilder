@@ -1,7 +1,7 @@
 #include "Logger.h"
 #include<Windows.h>
 using namespace std;
-LoggerLevel Logger::current_level=LoggerLevel::Debug;
+LoggerLevel Logger::current_level=LoggerLevel::Trace;
 
 void Logger::log(LoggerLevel level, string message, string func_name, int line)
 {

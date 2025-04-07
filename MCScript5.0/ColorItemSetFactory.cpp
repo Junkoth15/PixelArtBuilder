@@ -8,6 +8,7 @@ shared_ptr<ColorItemSet> ColorItemSetFactory::createColorItemSet(string color_de
 	shared_ptr<ColorItemSet> result = make_shared<ColorItemSet>();
 	result->name = getColorItemSetName(color_describe_file_path);
 
+	//Json::Value json_root = FileLoader::loadJson(color_describe_file_path);
 	auto lines=FileLoader::loadLinesInTXT(color_describe_file_path);
 	for (auto line : lines) {
 		std::istringstream stream(line);

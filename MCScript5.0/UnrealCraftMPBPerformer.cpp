@@ -43,7 +43,7 @@ void UnrealCraftMPBPerformer::getItemToHand(const vector<ColorItem>& line, int i
 void UnrealCraftMPBPerformer::putBlock()
 {
 	performer->putBlock(true);
-	usleep(30);
+	usleep(70);
 }
 
 void UnrealCraftMPBPerformer::move(MoveMode mode)
@@ -312,8 +312,6 @@ POINT UnrealCraftMPBPerformer::findUseAbleMCItemPOINT(const MCItem& item, const 
 	//			return p1.x < p2.x;
 	//	}
 	//	});
-
-
 
 	POINT item_point = { 0,0 };		//合适的item坐标
 	//寻找合适的item坐标

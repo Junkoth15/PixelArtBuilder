@@ -1,8 +1,10 @@
 #include "FileLoader.h"
+#include"Tools.h"
 #include<fstream>
 #include<filesystem>
 using namespace std;
 using namespace cv;
+using namespace Json;
 namespace fs = std::filesystem;
 
 map<string, Mat> FileLoader::loadPicsInFolder(string path,ImreadModes mode)
@@ -28,9 +30,19 @@ map<string, Mat> FileLoader::loadPicsInFolder(string path,ImreadModes mode)
 	return result;
 }
 
-map<string, string> FileLoader::loadTXTMap(string path)
+Value FileLoader::loadJson(string path)
 {
-	vector<string> lines = loadLinesInTXT(path);
+	if (!ifFilePathExist(path)) {
+		throw FileLoaderOpenException(path);
+	}
+	ifstream in(path);
+	Value root;
+	Reader reader;
+	reader.parse(in, root);
+	return root;
+
+
+	/*vector<string> lines = loadLinesInTXT(path);
 	map<string, string> result;
 	for (auto line : lines) {
 		std::istringstream stream(line);
@@ -39,23 +51,6 @@ map<string, string> FileLoader::loadTXTMap(string path)
 		stream >> value;
 		result[key] = value;
 	}
-	return result;
-
-	/*map<string, string> result;
-	ifstream file(path);
-	if (!file.is_open()) {
-		throw exception(("FileLoader::loadTXTMap:"+path+"文件不存在!\n").c_str());
-	}
-
-
-
-	string key, value;
-	while (file >> key)
-	{
-		file >> value;
-		result[key] = value;
-	}
-	file.close();
 	return result;*/
 }
 
@@ -68,7 +63,7 @@ vector<string> FileLoader::loadLinesInTXT(string path)
 
 	ifstream file(path);
 	//if (!file.is_open()) {
-	//	throw exception(("FileLoader::loadTXTMap:" + path + "文件不存在!\n").c_str());
+	//	throw exception(("FileLoader::loadJson:" + path + "文件不存在!\n").c_str());
 	//}
 
 	string str;
@@ -77,6 +72,17 @@ vector<string> FileLoader::loadLinesInTXT(string path)
 		result.push_back(str);
 	}
 	file.close();
+	return result;
+}
+
+map<string, string> FileLoader::loadKstringVstringMapFromJson(string path)
+{
+	Value v = loadJson(path);
+	map<string, string> result;
+	auto keys = v.getMemberNames();
+	for (const auto& key : keys) {
+		result.insert(make_pair<>(key, v[key].asString()));
+	}
 	return result;
 }
 

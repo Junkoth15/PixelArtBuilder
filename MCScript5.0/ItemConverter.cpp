@@ -1,6 +1,7 @@
 #include "ItemConverter.h"
 #include"FileLoader.h"
 #include"MCItemMapFactory.h"
+#include"Tools.h"
 
 ItemConverter::ItemConverter(string convert_file_path, string mcitem_map_name)
 {
@@ -16,7 +17,29 @@ const MCItem& ItemConverter::convert(string name)const
 
 void ItemConverter::loadConvertMap(string convert_file_path)
 {
-	convert_map= FileLoader::loadTXTMap(convert_file_path);
+	Json::Value item= FileLoader::loadJson(convert_file_path);
+	try
+	{
+		LogTrace("begin");
+		for (int i = 0; i < item.size(); i++) {
+			convert_map.insert(std::make_pair(
+				item[i]["颜色物品"].asString(),
+				item[i]["转换物品"].asString()
+			));
+		}
+	}
+	catch (const std::exception& e)
+	{
+		LogError("error");
+		throw e;
+	}
+
+	//Json::Value::Members keys = item.getMemberNames();
+	//for (int k = 0; k < keys.size(); ++k)
+	//{
+	//	convert_map.insert(std::make_pair<>(keys.at(k),item[keys[k]].asString()));
+	//	//cout << keys.at(k) << ":" << item[keys[k]] << ", ";
+	//}
 }
 
 void ItemConverter::loadMCItemMap(string mcitem_map_name)

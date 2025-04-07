@@ -1,3 +1,3 @@
-画板第一列x		10048
+画板第一列x		10176
 转换文件路径		./config/虚幻世界/item_convert.txt
 Getter文件路径		./config/虚幻世界/UnrealCraftItemMapWareGetter.txt

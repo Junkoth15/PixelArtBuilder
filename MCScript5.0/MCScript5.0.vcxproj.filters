@@ -492,7 +492,7 @@
     <ClCompile Include="UnrealCraftItemMapWareGetter.cpp">
       <Filter>源文件\地图画建造实现模块\物品获取模块</Filter>
     </ClCompile>
-    <ClCompile Include="FileLoaderException.cpp">
+    <ClCompile Include="FileLoaderOpenException.cpp">
       <Filter>源文件\文件模块</Filter>
     </ClCompile>
     <ClCompile Include="MPBQuickStarter.cpp">
@@ -701,7 +701,7 @@
     <ClInclude Include="UnrealCraftItemMapWareGetter.h">
       <Filter>头文件\地图画建造实现模块\物品获取模块\实现类</Filter>
     </ClInclude>
-    <ClInclude Include="FileLoaderException.h">
+    <ClInclude Include="FileLoaderOpenException.h">
       <Filter>头文件\文件模块</Filter>
     </ClInclude>
     <ClInclude Include="MPBQuickStarter.h">

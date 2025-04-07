@@ -27,15 +27,37 @@ void UnrealCraftItemMapWareGetter::getItemMap(map<string, int> map)
 void UnrealCraftItemMapWareGetter::load(string mc_item_map_path, string config_path)
 {
 	item_map = &MCItemMapFactory::getMCItemMap(mc_item_map_path);
-	if (item_index_map.empty()) {
-		map<string, string> map = FileLoader::loadTXTMap(config_path);
+	/*if (item_index_map.empty()) {
+		map<string, string> map = FileLoader::loadJson(config_path);
 		warehouse = map.at("仓库名");
 		for (auto pair : map) {
 			if (pair.first != "仓库名") {
 				item_index_map.insert(std::make_pair(pair.first, std::stoi(pair.second)));
 			}
 		}
+	}*/
+	if (item_index_map.empty()) {
+		Json::Value v = FileLoader::loadJson(config_path);
+		try
+		{
+			LogTrace("begin");
+			warehouse = v["仓库名"].asString();
+			Json::Value pos_array = v["方块位置"];
+			for (int i = 0; i < pos_array.size(); i++) {
+				item_index_map.insert(std::make_pair(
+					pos_array[i]["方块"].asString(),
+					pos_array[i]["位置"].asInt()
+				));
+			}
+
+		}
+		catch (const std::exception& e)
+		{
+			LogError("error");
+			throw e;
+		}
 	}
+
 }
 
 void UnrealCraftItemMapWareGetter::init(map<string, int> map)

@@ -56,7 +56,7 @@ public:
 	// 通过 KeyBoardControl 继承
 	void keyEvent(ASCIIKeyCode key, KeyEvent key_event) override;
 	void clickNumberKey(int num) override;
-	void clickKey(ASCIIKeyCode key, int interval_time, int delay_time) override;
+	void clickKey(ASCIIKeyCode key, int interval_time=50, int delay_time=0) override;
 
 	// 通过 MouseControl 继承
 	void moveMouseToPoint(int x, int y, bool absolute_coordinates = true) override;

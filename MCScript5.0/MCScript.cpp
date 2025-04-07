@@ -178,7 +178,8 @@ void MCScript::openBox()
 
 void MCScript::closeBoxOrPackage()
 {
-	m_noImagePerformer->keyEvent(ASCIIKeyCode::E, KeyEvent::ClickKey);
+	//m_noImagePerformer->keyEvent(ASCIIKeyCode::E, KeyEvent::ClickKey);
+	m_noImagePerformer->clickKey(ASCIIKeyCode::E, 50, 50);
 }
 
 void MCScript::mouseEventForTime(SMouseEvent mouse_event, int militime, int interval_time)

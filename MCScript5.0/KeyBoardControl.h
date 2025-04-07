@@ -8,7 +8,8 @@ enum class ASCIIKeyCode {
 
 //¼üÅÌÊÂ¼ş
 enum class KeyEvent {
-	KeyDown, KeyUp, ClickKey
+	KeyDown, KeyUp
+	//, ClickKey
 };
 class KeyBoardControl
 {

@@ -11,6 +11,8 @@ private:
 	NoImagePerformer* performer;
 public:
 	MPBQuickStarter(BuildMapPic* builder, NoImagePerformer* performer);
-	void start();
+	void startFromFile();
+private:
+	void start(Mat mat,int begin_line,int end_line);
 };
 

@@ -1,3 +1,4 @@
-图片路径	C:\Users\Junko\Desktop\images\千里江山图\1_57.png
-开始列	6
+图片路径	C:\Users\Junko\Desktop\images\千里江山图\1_60.png
+开始列	26
 结束列	128
+分块		1 2

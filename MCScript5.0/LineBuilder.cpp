@@ -19,7 +19,7 @@ void LineBuilder::buildLine(const vector<ColorItem>& line, int max_index)
 		//Logger::log("LineBuilder::buildLine", "next_block_index:" + std::to_string(next_block_index));
 
 		if (next_block_index >max_index) {
-			LogInfo("放置方块次数:" + std::to_string(count));
+			LogDebug("放置方块次数:" + std::to_string(count));
 			return;
 		}
 		getMCItemToHand(next_block_index);

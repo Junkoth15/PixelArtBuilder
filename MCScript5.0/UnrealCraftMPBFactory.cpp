@@ -7,7 +7,7 @@
 #include"UnrealCraftPerformerFile.h"
 #include"FileLoader.h"
 string UnrealCraftMPBFactory::color_item_set_file_path= "./config/虚幻世界/虚幻世界颜色物品集.txt";
-string UnrealCraftMPBFactory::unreal_craft_mpb_info_path= "./config/虚幻世界/UnrealCraftMPBConfig.txt";
+string UnrealCraftMPBFactory::unreal_craft_mpb_info_path= "./config/虚幻世界/UnrealCraftMPBConfig.json";
 
 static UnrealCraftMPBInfo loadMPBInfo(string path);
 
@@ -25,11 +25,20 @@ shared_ptr<BuildMapPic> UnrealCraftMPBFactory::getUnrealCraftMPB(HWND window)
 
 
 static UnrealCraftMPBInfo loadMPBInfo(string path) {
-	auto key_value = FileLoader::loadTXTMap(path);
+	auto value = FileLoader::loadJson(path);
 	UnrealCraftMPBInfo result;
-	result.board_first_line_x = std::stoi(key_value.at("画板第一列x"));
-	result.item_map_path = UnrealCraftPerformerFile::getMCItemSetPath();
-	result.convert_file_path = key_value.at("转换文件路径");
-	result.getter_file_path = key_value.at("Getter文件路径");
+	try
+	{
+		LogTrace("begin");
+		result.board_first_line_x = value["画板第一列x"].asInt();
+		result.item_map_path = UnrealCraftPerformerFile::getMCItemSetPath();
+		result.convert_file_path = value["转换文件路径"].asString();
+		result.getter_file_path = value["Getter文件路径"].asString();
+	}
+	catch (const std::exception& e)
+	{
+		LogError("error");
+		throw e;
+	}
 	return result;
 }
