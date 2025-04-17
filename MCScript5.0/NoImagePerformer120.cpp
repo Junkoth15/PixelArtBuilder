@@ -52,7 +52,7 @@ void NoImagePerformer120::clickNumberKey(int num)
 	}
 
 	//keyEvent(ascii_key_code, KeyEvent::ClickKey);
-	clickKey(ascii_key_code);
+	clickKey(ascii_key_code,50);
 }
 
 void NoImagePerformer120::clickKey(ASCIIKeyCode key, int interval_time, int delay_time)

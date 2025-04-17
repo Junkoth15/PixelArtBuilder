@@ -64,8 +64,8 @@ int TaskSpliter::countActualNum(int ori_num)
 	};
 
 	//物品有多少组
-	//每组物品至少剩3个
-	ori_num += group_counter(ori_num)* 3;
+	//至少剩余3*(n+1)个物品，n为物品原组数
+	ori_num += (group_counter(ori_num)+1)* 3;
 	ori_num = 64 * group_counter(ori_num);
 	return ori_num;
 }

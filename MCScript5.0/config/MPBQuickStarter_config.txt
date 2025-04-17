@@ -1,4 +1,4 @@
-图片路径	C:\Users\Junko\Desktop\images\千里江山图\1_60.png
-开始列	26
+图片路径	C:\Users\Junko\Desktop\images\images\回群市.png
+开始列	1
 结束列	128
 分块		1 2

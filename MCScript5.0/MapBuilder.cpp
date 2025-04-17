@@ -55,10 +55,14 @@ void MapBuilder::buildLines(const ColorItemMat& mat,int begin_line, int end_line
 	LogInfo("begin:" + std::to_string(begin_line) + " end:" + std::to_string(end_line));
 	int now_line = begin_line;
 	refreshPackage();
+	int item_counter = 0;
 	while (now_line <= end_line) {
 		goToLine(now_line);
 		buildOneLine(mat, now_line,end_line,line_length);
-		if ((now_line - begin_line) % 4 == 0) {
+		//每隔一段距离刷新背包，矫正方块数量
+		item_counter += line_length;
+		if (item_counter >=256) {
+			item_counter = 0;
 			refreshPackage();
 		}
 		now_line++;

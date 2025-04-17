@@ -163,54 +163,39 @@ void UnrealCraftMPBPerformer::refreshPackage()
 
 void UnrealCraftMPBPerformer::recycleItem()
 {
-	usleep(2000);
-	//先刷新背包
-	openPackage();
-	refreshPackage();
 	auto package = performer->getPackage();
-	package->setPackageStatus(PackageStatus::USE_SMALL_BOX);
 
-	//先把末影箱的东西转移到背包
-	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyDown); usleep(500);
-	auto points = ender_chest.getAllLatticePOINT();
-	for (auto p : points) {
-		auto& lattice = ender_chest.getLattice(p.x, p.y);
-		//这段代码导致了末影箱清理不彻底
-		//if (lattice.isHasKnownItem()) {
-		//	////若背包放得下，则放入
-		//	//if (package->addItemByShift(lattice.getItem(), lattice.getNum())) {
-		//	//	lattice.eraseItem();
-		//	//}
-		//	////放不下，则停止转移
-		//	//else break;
+	//为防止一次清理不干净，需要清理两次
+	for (int i = 0; i < 2; i++) {
+		usleep(2000);
+		openPackage();
+		package->setPackageStatus(PackageStatus::USE_SMALL_BOX);
 
-		//	lattice.eraseItem();
-
-		//}
-		auto pos = ender_chest.getLatticeRelativeMidPos(p.x, p.y);
-		performer->moveMouseAndClickLeft(pos.x, pos.y, false);
-	}
-	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp); usleep(500);
-	closePackage();
-	//打开垃圾桶
-	/*performer->clickKey(ASCIIKeyCode::V, 0, 800);
-	performer->moveMouseAndClickLeft(1075, 535, false); usleep(1000);
-	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyDown); usleep(500);*/
-	performer->useInstruction("/dispose"); usleep(2000);
-	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyDown); usleep(500);
-	//放入垃圾
-	points = package->getAllLatticePOINT();
-	for (auto p : points) {
-		auto& lattice = package->getLattice(p.x, p.y);
-		//if (!lattice.isEmpty()) {
+		//先把末影箱的东西转移到背包
+		performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyDown); usleep(500);
+		auto points = ender_chest.getAllLatticePOINT();
+		for (auto p : points) {
+			auto& lattice = ender_chest.getLattice(p.x, p.y);
+			auto pos = ender_chest.getLatticeRelativeMidPos(p.x, p.y);
+			performer->moveMouseAndClickLeft(pos.x, pos.y, false);
+		}
+		performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp); usleep(500);
+		closePackage();
+		//打开垃圾桶
+		performer->useInstruction("/dispose"); usleep(2000);
+		performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyDown); usleep(500);
+		//放入垃圾
+		points = package->getAllLatticePOINT();
+		for (auto p : points) {
+			auto& lattice = package->getLattice(p.x, p.y);
 			lattice.eraseItem();
 			auto pos = package->getLatticeRelativeMidPos(p.x, p.y);
 			performer->moveMouseAndClickLeft(pos.x, pos.y, false);
-		//}
+		}
+		//结束
+		performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp); usleep(500);
+		closePackage();
 	}
-	//结束
-	performer->keyEvent(ASCIIKeyCode::SHIFT, KeyEvent::KeyUp); usleep(500);
-	closePackage();
 }
 
 void UnrealCraftMPBPerformer::getItemMap(map<string, int> need_map)
@@ -400,19 +385,6 @@ POINT UnrealCraftMPBPerformer::findOneMCItem(const MCItem& item) const
 		}
 		});*/
 	return points[0];
-	
-
-	//POINT p;
-	////先在背包里找
-	//p = performer->getPackage()->findFirsItemFirstFromRow4(item);
-	//if (p.y != 0) return p;
-	////再在末影箱里找
-	//p = ender_chest.findFirstItem(item);
-	//if (p.y != 0) {//注意末影箱的y坐标
-	//	p.y += 4;
-	//	return p;
-	//}
-	//ThrowException::throwException("UnrealCraftMPBPerformer::findOneMCItem", "缺乏物品:" + item.name);
 }
 
 vector<POINT> UnrealCraftMPBPerformer::findAllMCItem(const MCItem& item) const
